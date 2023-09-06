@@ -1,0 +1,38 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(255, 238, 217);
+    text-align: center;
+}
+
+figure {
+    border: 2px rebeccapurple solid; padding: 10px; width: auto; background-color: rgb(255, 247, 236);
+}
+
+figcaption {
+    font-size: 30px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+p {
+    font-size: 20px;
+}
+
+li {
+    font-size: 20px;
+    text-align: center;
+}
+
+img {
+    width: 600px;
+}
