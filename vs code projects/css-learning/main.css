@@ -2,6 +2,15 @@ h1 {
     color: black;
     font-size: 3rem;
 }
+.other-h1 {
+    color: aqua;
+}
+.lowercase {
+    text-transform: lowercase;
+}
+#third {
+    color: blue;
+}
 /* Для стилизации блоков используется div{...} */
 /* Для стилизации строк используется span{...} */
 
