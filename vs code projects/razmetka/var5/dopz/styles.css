@@ -1,6 +1,52 @@
 table {
-    text-align: center;
+    font-family: Calibri, sans-serif;
+    font-weight: 400;
+    border-collapse: collapse;
 }
 
-td {
+thead {
+    background-color: hsl(200, 100%, 50%);
+    color: white;
+    height: 35px;
+}
+
+tr {
+    height: 35px;
+    border: 1px rgb(230, 230, 230) solid;
+}
+
+.header {
+    padding-left: 15px;
+    border: 1px white solid;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.first-line {
+    background-color: rgb(244, 244, 244);
+    border: 1px rgb(230, 230, 230) solid;
+    padding-left: 15px;
+    color: grey;
+    font-size: 12px;
+    text-align: left;
+    height: 30px;
+}
+
+.number {
+    padding-left: 15px;
+    column-width: 35px;
+}
+
+._ {
+    width: 350px;
+}
+
+span {
+    color: grey;
+    font-size: 12px;
+}
+
+.points {
+    text-align: center;
+    width: 60px;
+    font-weight: 600;
 }

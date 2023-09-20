@@ -2,27 +2,50 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дополнительное задание</title>
 </head>
 <body>
-    <table>
+    <table class="tbl">
         <thead>
             <tr>
-                <th>Личный зачёт кубка мира</th>
+                <td class="header" colspan="3">Личный зачёт кубка мира</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>№</td>
-                <td>Спортсмен</td>
-                <td>Очки</td>
+            <tr class="first-line">
+                <td class="number">№</td>
+                <td class="_">Спортсмен</td>
+                <td class="__">Очки</td>
             </tr>
             <tr>
-                <td>1.</td>
-                <td>Мартен Фуркард Франция</td>
-                <td>151</td>
+                <td class="number">1.</td>
+                <td class="_">Мартен Фуркард <span>Франция</span></td>
+                <td class="points">151</td>
             </tr>
+            <tr>
+                <td class="number">2.</td>
+                <td class="_">Эмиль-Хегле Свендсен <span>Норвегия</span></td>
+                <td class="points">121</td>
+            </tr>
+            <tr>
+                <td class="number">3.</td>
+                <td class="_">Алексис Бёф <span>Франция</span></td>
+                <td class="points">110</td>
+            </tr>
+            <tr>
+                <td class="number">4.</td>
+                <td class="_">Арнд Пайффер <span>Германия</span></td>
+                <td class="points">105</td>
+            </tr>
+            <div>
+                <tr>
+                    <td class="number">5.</td>
+                    <td class="_">Евгений Устюгов <span>Россия</span></td>
+                    <td class="points">104</td>
+                </tr>
+            </div>
         </tbody>
     </table>
 </body>
