@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+}
+
+table {
+    border: 2px black solid;
+    border-top: 0px;
+    border-collapse: separate;
+    background-color: antiquewhite;
+}
+
+caption {
+    border: 2px black solid;
+    border-collapse: separate;
+    background-color: rgb(255, 215, 160);    
+}
+
+th {
+    padding: 10px;
+    border: 1px rgb(135, 135, 135) solid;
+    background-color: rgb(255, 215, 160);
+}
+
+td {
+    border: 1px rgb(135, 135, 135) solid;
+    padding: 10px;
+}
