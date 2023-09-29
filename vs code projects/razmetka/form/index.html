@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Опрос</title>
+</head>
+<body>
+    <h1 class="header">Что вы думаете об обучении в университете?</h1>
+        <form id="f">
+            <fieldset form="f">
+                <legend>Данные о себе</legend>
+                <p>
+                    <label>Введите ФИО: <input class="inpt" type="text" placeholder="ФИО" required></label>
+                    <br><br>
+                    <label>Email: <input class="inpt" type="email" placeholder="Email" required></label>
+                    <br>
+                    <span>(обязательно)</span>
+                </p>
+            </fieldset>
+            
+            <br><br>
+            <fieldset form="f">
+                <legend>Город</legend>
+                <p>
+                    <label>Выберите город:</label>
+                    <select class="inpt" required>
+                        <option>Иркутск</option>
+                        <option>Саянск</option>
+                        <option>Шелехов</option>
+                        <option>Усть-Урда</option>
+                        <option>Улан-Удэ</option>
+                        <option>Ангарск</option>
+                        <option>Другой</option>
+                    </select>
+                    <br><span>(обязательно)</span>
+                </p>
+            </fieldset>
+            <br><br>
+            <fieldset form="f">
+                <legend>Оправдались ли Ваши ожидания касательно ВУЗа?</legend>
+                <p>
+                    <label><input type="radio">Да</label><br><br>
+                    <label><input type="radio">Пока не определился</label><br><br>
+                    <label><input type="radio">Нет</label>
+                </p>
+            </fieldset>
+            <br><br>
+            <fieldset form="f">
+                <legend>Считаете ли Вы свою стипендию недостаточной для выживания?</legend>
+                <p>
+                    <label><input type="radio">Да</label><br><br>
+                    <label><input type="radio">Нет</label>
+                </p>
+            </fieldset>
+            <br><br>
+            <fieldset form="f">
+                <legend>Выберите Ваши любимые предметы в университете:</legend>
+                <p>
+                    <label><input type="checkbox">Математика</label><br><br>
+                    <label><input type="checkbox">Программирование</label><br><br>
+                    <label><input type="checkbox">Вёрстка сайтов</label><br><br>
+                    <label><input type="checkbox">Информатика</label><br><br>
+                    <label><input type="checkbox">Физкультура</label><br><br>
+                    <label><input type="checkbox">ОРГ</label><br><br>
+                    <label><input type="checkbox">БЖД</label>
+                </p>
+            </fieldset>
+            <br><br>
+            <fieldset form="f">
+                <legend>Выберите Ваши нелюбимые предметы в университете:</legend>
+                <p>
+                    <label><input type="checkbox">Математика</label><br><br>
+                    <label><input type="checkbox">Программирование</label><br><br>
+                    <label><input type="checkbox">Вёрстка сайтов</label><br><br>
+                    <label><input type="checkbox">Информатика</label><br><br>
+                    <label><input type="checkbox">Физкультура</label><br><br>
+                    <label><input type="checkbox">ОРГ</label><br><br>
+                    <label><input type="checkbox">БЖД</label>
+                </p>
+            </fieldset>
+            <br><br>
+            <fieldset form="f">
+                <legend>Ваши мысли и пожелания</legend>
+                <p>
+                    <textarea placeholder="Текст комментария" cols="80" rows="10">Я считаю, что нужно изменить...</textarea>
+                    <p>
+                        <label for="file">Или прикрепите файл: </label>
+                        <input id="file" type="file">
+                    </p>
+                    <span>(необязательно)</span>
+                </p>
+            </fieldset>
+            <input class="btn" type="submit">
+            <input class="btn" type="reset">
+        </form>
+</body>
+</html>
