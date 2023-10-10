@@ -1,0 +1,51 @@
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    margin: 3px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 204px;
+    margin: 10px;
+}
+
+.price {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.ruble {
+    font-size: 19px;
+}
+
+.name {
+    font-size: 20px;
+    color: rgb(0, 100, 255);
+}
+
+.description {
+    font-size: 18px;
+    color: rgb(111, 111, 111);
+}
+
+.previous_price {
+    font-size: 19px;
+    color: rgb(111, 111, 111);
+}
