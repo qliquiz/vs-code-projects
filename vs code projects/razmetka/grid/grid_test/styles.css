@@ -1,0 +1,28 @@
+.mine { 
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px 100px;
+    grid-template-areas: 
+    "w w w w w"
+    "w w w w w"
+    "b b g g g"
+    "b b g g g"
+    "b b w w w"
+    "b b w w w";
+}
+
+.w {
+    grid-area: w;
+    background-color: blue;
+}
+
+.g {
+    grid-area: g;
+    background-color: green;
+}
+
+.b {
+    grid-area: b;
+    background-color: brown;
+}
