@@ -52,11 +52,13 @@ button.value = 'Удалить';
 
 button.onclick = function(){
     console.log('Click!');
-}
+    img.remove();
+};
 
 button.addEventListener('click', function(){
     console.log('Click!');
-}) */
+    img.remove();
+}); */
 
 // Ввод текста
 /* const inputText = document.querySelector('#input-text');
@@ -70,7 +72,7 @@ inputText.addEventListener('input', () => {
 /* const list = document.querySelector('#list');
 
 list.addEventListener('click', function(event) {
-    console.log(event.target);
+    console.log(event.target); // вся инфа о том, на что мы кликнули
 }); */
 
 // ====================Создание и копирование элементов====================
@@ -92,7 +94,7 @@ container.append(newHeader);
 
 // Копирование шапки
 const mainHeader = document.querySelector('header');
-const copyOfMainHeader = mainHeader.cloneNode(true);
+const copyOfMainHeader = mainHeader.cloneNode(true); // скопировали и вставили шапку вместе с её содержимым
 container.append(copyOfMainHeader);
 
 // Вставка разметки через строки
@@ -112,6 +114,7 @@ const todoInput = document.querySelector('#todo-input');
 todoForm.addEventListener('submit', formHandler);
 
 function formHandler(event) {
+    // Отменяем обновление страницы после нажатия кнопки
     event.preventDefault();
     // Получаем название задачи из инпута
     const taskText = todoInput.value;
@@ -130,7 +133,7 @@ function formHandler(event) {
     deleteBttn.innerText = 'Удалить';
     deleteBttn.style['margin-left'] = '10px';
     deleteBttn.addEventListener('click', function() {
-        this.closest('li').remove();
+        this.closest('li').remove(); // closest('tag') ищет первого родителя с таким тегом
     });
     // Добавляем элемент на страницу
     todoList.append(newTask);
@@ -139,7 +142,7 @@ function formHandler(event) {
     todoInput.value = '';
     // Фокус на поле ввода
     todoInput.focus();
-} */
+}; */
 
 // ====================setInterval====================
 /* const interval = setInterval(() => {console.log('Tick-Tack!')}, 1000); // каждую секунду в консоль будет выводиться 'Tick-Tack!'
@@ -179,12 +182,11 @@ btnReset.onclick = () => {
 } */
 
 // ====================Callback====================
-/* // Тупо вкладываем одну функцию в другую
-function checkTickets(message, success, fail) {
+// Тупо вкладываем одну функцию в другую
+/* function checkTickets(message, success, fail) {
+    console.log('Ответ на предыдущем шаге:', message);
+    console.log('Проверяем авиабилеты...');
     setTimeout(() => {
-        console.log('Ответ на предыдущем шаге:', message);
-        console.log('Проверяем авиабилеты...');
-        
         const availableTickets = true;
 
         if (availableTickets) {
@@ -196,8 +198,8 @@ function checkTickets(message, success, fail) {
 }
 
 function checkRooms(success, fail){
+    console.log('Проверяем номера в отеле...');
     setTimeout(() => {
-        console.log('Проверяем номера в отеле...');
         let availableRooms = true;
 
         if (availableRooms) {
@@ -205,7 +207,7 @@ function checkRooms(success, fail){
         } else {
             fail('Номеров нет');
         }
-    }, 1000);
+    }, 2000);
 }
 
 function cancelVacation(message) {
@@ -218,19 +220,26 @@ function submitVacation(message) {
     console.log('Едем в отпуск!');
 }
 
-checkRooms(
-    (messageFromCheckRooms) => {
-        checkTickets(
-            messageFromCheckRooms,
-            (messageFromCheckRooms) => {submitVacation(messageFromCheckRooms)},
-            (messageFromCheckRooms) => {cancelVacation(messageFromCheckRooms)}
-        )
-    },
-    (messageFromCheckRooms) => {cancelVacation(messageFromCheckRooms)}
-); */
+const btn = document.createElement('button');
+btn.setAttribute('role', 'button');
+btn.innerText = 'Проверить комнаты';
+document.querySelector('body').append(btn);
+
+btn.addEventListener('click', function() { 
+    checkRooms(
+        (messageFromCheckRooms) => {
+            checkTickets(
+                messageFromCheckRooms,
+                (messageFromCheckTickets) => {submitVacation(messageFromCheckTickets)},
+                (messageFromCheckTickets) => {cancelVacation(messageFromCheckTickets)}
+            )
+        },
+        (messageFromCheckRooms) => {cancelVacation(messageFromCheckRooms)}
+    )
+}) */
 
 // ====================Промисы====================
-const myPromise = new Promise((resolve, reject) => {
+/* const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
         // сделали какой-то запрос на сервер
         const response = true; // получили какой-то ответ
@@ -244,4 +253,4 @@ const myPromise = new Promise((resolve, reject) => {
     console.log(data)
 }).catch((data) => {
     console.log(data)
-});
+}); */

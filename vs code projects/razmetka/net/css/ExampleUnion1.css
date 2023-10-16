@@ -1,39 +1,92 @@
 body{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 100;
 	background-color: gray;
+	text-align: center;
 }
+
 .page-body{
 	display: table;
 	width: 100%;
 	height: 100%;
-	background-color: lightcyan;
+	background-color: aliceblue;
 }
+
 header{
-	display: table-row;
-	background-color: lightgreen;
-	height: 30px;
-	text-align: center;
-	margin: 10px;
+	display: table;
+	width: 100%;
+	height: 100%;
+	background-color:  rgb(184, 212, 142);
 }
+
+.h {
+	display: table-cell;
+	color: aliceblue;
+	font-size: 25px;
+}
+
+#l {
+	width: 20%;
+	padding: 4% 10%;
+}
+
+#r {
+	width: 40%;
+	padding-left: 5%;
+}
+
+/* .flt {
+	display: table-row;
+	float: right;
+	background-color: rgb(129, 150, 98);
+} */
+
 footer{
 	display: table-row;
-	background-color: lightgreen;
+	color: aliceblue;
+	background-color: rgb(36, 36, 36);
 	height: 30px;
 	text-align: center;
 }
+
 main{
 	display: table;
 	width: 100%;
 	height: 100%;
 }
+
 .box{
 	display: table-cell;
-	text-align: center;
+	width: 50%;
+	background-color: white;
 }
-.left{
-	width: 20%;
-	background-color: lightblue;
+
+.last-types {
+	font-size: 27px;
+	font-weight: 600;
+	padding: 7% 0% 2.5% 10%;
 }
-.right{
-	width: 15%;
-	background-color: lightblue;
+
+.example {
+	display: table;
+	margin: 0% 12% 4% 10%;
+}
+
+.description {
+	display: table-cell;
+	color: rgb(110, 110, 110);
+	font-size: 24px;
+	padding-left: 20%;
+	vertical-align: middle;
+}
+
+.square {
+	display: table-cell;
+	width: 222px;
+}
+
+.podcast {
+	font-size: 24.5px;
+	font-weight: 600;
+	padding: 6% 28%;
 }
