@@ -9,7 +9,7 @@ body{
 	display: table;
 	width: 100%;
 	height: 100%;
-	background-color: aliceblue;
+	background-color: white;
 }
 
 header{
@@ -28,6 +28,7 @@ header{
 #l {
 	width: 20%;
 	padding: 4% 10%;
+	padding-bottom: 20%;
 }
 
 #r {
@@ -35,18 +36,42 @@ header{
 	padding-left: 5%;
 }
 
-/* .flt {
-	display: table-row;
+.fragment {
+	background-color: rgb(152, 173, 93);
+	width: 75%;
 	float: right;
-	background-color: rgb(129, 150, 98);
-} */
+	margin-top: -12%;
+}
+
+#fi {
+	width: 630px;
+	float: right;
+}
+
+#ft {
+	text-align: left;
+	color: aliceblue;
+	position: relative;
+	font-size: 25px;
+	margin-top: -8.5%;
+	margin-left: 20%;
+}
+
+#fb {
+	background-color: aliceblue;
+	position: relative;
+	width: 200px;
+	height: 80px;
+	margin-top: 4%;
+	margin-left: 35%;
+}
 
 footer{
-	display: table-row;
+	display: table;
+	width: 96%;
 	color: aliceblue;
 	background-color: rgb(36, 36, 36);
-	height: 30px;
-	text-align: center;
+	padding: 2%;
 }
 
 main{
@@ -57,8 +82,7 @@ main{
 
 .box{
 	display: table-cell;
-	width: 50%;
-	background-color: white;
+	width: 50%;	
 }
 
 .last-types {
@@ -89,4 +113,21 @@ main{
 	font-size: 24.5px;
 	font-weight: 600;
 	padding: 6% 28%;
+}
+
+.t {
+	display: table-row;
+}
+
+.playlists {
+	display: table;
+	margin: 10%;
+	width: 120%;
+	font-size: 27px;
+	font-weight: 600;
+}
+
+.foot {
+	display: table-cell;
+	font-size: 20px;
 }
