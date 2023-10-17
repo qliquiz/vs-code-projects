@@ -1,0 +1,54 @@
+h1 {
+  font-size: 20px;
+}
+
+h1 + .results {
+  margin-top: 20px;
+}
+
+table {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 35%;
+  font-size: 20px;
+  border-collapse: collapse;
+}
+
+tr td {
+  border: 1px solid grey;
+  padding: 8px;
+}
+
+th {
+  font-weight: normal;
+  background-color: #dad7f4;
+  text-align: left;
+}
+
+tr:first-child {
+  background-color: #debaff;
+}
+
+td:nth-child(5) > span {
+  font-weight: bold;
+}
+
+.disqualified {
+  text-decoration: line-through;
+}
+
+.player-1 .total {
+  background-color: silver;
+}
+
+.player-2 .total {
+  background-color: gold;
+}
+
+.player-3 .total {
+  
+  background-color: red;
+}
+
+.player-4 .total {
+  background-color: chocolate;
+}
