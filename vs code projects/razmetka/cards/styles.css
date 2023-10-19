@@ -1,0 +1,17 @@
+.card1 {
+    color: red;
+    width: 10%;
+}
+
+.normal {
+    font-size: 40px;
+}
+
+.suit {
+    font-size: 80px;
+}
+
+.inverted {
+    font-size: 40px;
+    transform: rotate(180deg);
+}

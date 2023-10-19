@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #191411;
+    font-family: 'Gilroy', sans-serif;
+    color: white;
+}
+
+.main {
+    background-position: top center;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    padding: 1% 0;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    vertical-align: top;
+    max-width: 100px;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10.5%;
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    margin-right: 90px;
+}
+
+.menu-item p {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    position: relative;
+}
+
+.menu-item:hover .dipper-menu-list {
+    display: flex;
+}
+
+.dipper-menu-list {
+    background-color: #0f0d0b;
+    padding-top: 10px;
+    border-radius: 10px;
+    position: absolute;
+    list-style: none;
+    display: none;
+    flex-direction: column;
+}
+
+.dipper-menu-item {
+    padding: 10px 20px 20px 20px;
+    padding-left: 10px;
+}
+
+.dipper-menu-item a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dipper-menu-item a:hover {
+    border-bottom: 1px solid white;
+}
+
+.advertisement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.advertisement img {
+    padding-top: 1%;
+    max-width: 60%;
+    border-radius: 45px;
+}
