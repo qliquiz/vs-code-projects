@@ -6,6 +6,9 @@
 @font-face {
     font-family: 'Gilroy';
     src: url('../fonts/Gilroy-Semibold.ttf');
+}
+
+@font-face {
     font-family: 'Merriweather';
     src: url('../fonts/Merriweather-Black.ttf');
 }
@@ -17,7 +20,7 @@ body {
 }
 
 .main {
-    background-image: url('../imgs/main_bg.png');
+    background-image: url('../img/main_bg.png');
     background-position: top center;
     overflow: hidden;
 }
