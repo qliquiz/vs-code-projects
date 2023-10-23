@@ -155,6 +155,11 @@
 
 .products-item-image img {
     max-width: 100%;
+    transition: all .5s ease;
+}
+
+.products-item-image img:hover {
+    transform: scale(1.1);
 }
 
 .products-item-title {
@@ -283,4 +288,27 @@
 .rights {
     font-size: 16px;
     line-height: 20px;
+}
+
+.loader {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #191411;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.loader lottie-player {
+    display: block;
+    width: 300px;
+    height: 300px;
+}
+
+.loader.showed {
+    opacity: 1;
 }
