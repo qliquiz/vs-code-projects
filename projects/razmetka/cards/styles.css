@@ -1,17 +1,128 @@
-.card1 {
-    color: red;
-    width: 10%;
+body {
+    background-color: green;
+    display: flex;
 }
 
-.normal {
+.card {
+    position: relative;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 10%;
+    border-radius: 5%;
+}
+
+.card:hover {
+    top: 45px;
+    transition-duration: 0.5s;
+    transform: scale(1.15);
+}
+
+.card::before {
+    display: block;
+    padding: 5% 0 0 5%;
     font-size: 40px;
 }
 
-.suit {
-    font-size: 80px;
+.center::before {
+    display: flex;
+    padding-left: 4.5%;
+    margin-top: -8%;
+    font-size: 30px;
 }
 
-.inverted {
+.center {
+    font-size: 70px;
+    background-color: white;
+    text-align: center;
+}
+
+.center::after {
+    display: flex;
+    padding-left: 4.5%;
+    margin-bottom: -48%;
+    font-size: 30px;
+    transform: rotate(180deg);
+}
+
+.card::after {
+    display: block;
+    padding: 5% 0% 0% 5%;
     font-size: 40px;
     transform: rotate(180deg);
+}
+
+.c1 {
+    top: 0px;
+    left: 20%;
+    color: red;
+}
+
+.c1::before {
+    content: 'A';
+}
+
+.c1 .center::before {
+    content: '\2665';
+}
+
+.c1 .center::after {
+    content: '\2665';
+}
+
+.c1::after {
+    content: 'A';
+}
+
+.c2 {
+    top: 0px;
+    left: 22.5%;
+    color: black;
+}
+
+.c2::before {
+    content: 'K';
+}
+
+.c2 .center::before {
+    content: '\2663';
+}
+
+.c2 .center::after {
+    content: '\2663';
+}
+
+.c2::after {
+    content: 'K';
+}
+
+.c3 {
+    top: 0px;
+    left: 25%;
+    color: black;
+}
+
+.c3::before {
+    content: 'D';
+}
+
+.c3 .center::before {
+    content: '\2660';
+}
+
+.c3 .center::after {
+    content: '\2660';
+}
+
+.c3::after {
+    content: 'D';
+}
+
+.c4c1 {
+    left: 27.5%;
+}
+
+.c5c2 {
+    left: 30%;
 }

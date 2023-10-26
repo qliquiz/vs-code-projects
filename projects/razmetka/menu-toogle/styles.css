@@ -1,0 +1,14 @@
+body {
+    align-content: center;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
