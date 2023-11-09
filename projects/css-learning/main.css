@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: rgb(23, 23, 23);
+}
+
 /* #8 Units & Overflow */
 /* font-size: 80%; - размер шрифта будет 80% от размера шрифта родителя, иначе - от дефолтного браузерного значения(16рх)
 font-size: 2em; - увеличивает размер шрифта в n раз(в данном случае в 2 раза) от размера шрифта родителя, иначе - дефолтного браузерного
@@ -21,22 +28,123 @@ visibility: hidden; - элемент скрывается, всё так же з
 opacity: 0; - делает элемент полностью прозрачным. С помощью transition можно будет сделать анимацию плавного появления
 color: transparent - прозрачный текст */
 
-/* #14 Background & #15 Gradients*/
+/* #14 Background & #15 Gradients */
 .wrapper {
     width: 100%;
     height: 100vh;
 
-    background-color: gainsboro;
-    background-image: url('../webcademy-js-6-hours-course/img/js.png'), url('./imgs/ocean.webp');
+    /* background-color: gainsboro;
+    background-image: url('../webcademy-js-6-hours-course/img/js.png'), url('./imgs/ocean.webp'); */
 
     /* background-size: contain; - изображение сохраняет свои изначальные пропорции */
     /* background-size: cover; - размер изображения соответствует размеру элемента, что приводит к обрезанию */
     /* background-size: 100px 200px; - точное значение */
 
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     /* background-repeat: repeat-x; - дублирование по горизонтали */
     /* background-repeat: repeat-y; - дублирование по вертикали */
 
-    background-position: center center;
+    /* background-position: center center; */
     /* background-attachment: fixed; - изображение всегда в поле зрения вне зависимости от скрола */
+
+    background-image: linear-gradient(30deg, blue, red 75%, blue 75%);
+    /* background-image: radial-gradient(yellow, black); - еще куча настроек, мне лень писать */
+}
+
+/* #16 Filtres */
+/* filter: blur(20px); - размытие
+    filter: drop-shadow(5px 5px 5px gray); - тень объекта, но без аргумента inset(внутренняя тень) и без поддержки множественных теней, ЗАТО
+    есть повторение контура элемента с псевдоэлементами!
+    filter: grayscale(100%); - серые тона
+    filet: brightness(100%); - яркость, принимает значения от -50% до 150%
+    filter: contrast(100%);
+    filter: hue-rotate(90deg); - менят тона в зависимости от их расположения
+    filter: invert(100%); - негатив
+    filter: saturate(100%)l - насыщенность
+    filter: sepia(100%); - иммитация старых изображений
+    filter: opacity(50%); - прозрачность */
+
+.js {
+    position: absolute;
+    margin: 17% 41%;
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    overflow: hidden;
+    animation: myAnimation 4s infinite;
+}
+
+/* #17 Transform */
+/* img {
+    transition: all 1s ease 0s;
+    transform-origin: 0px 0px;
+    transform-origin: right bottom;
+}
+
+img:hover {
+    transform: rotate(180deg);
+    transform: scale(1.1);
+    transform: scale(0.5, 1.5);
+    transform: translate(100px, 100px);
+    transform: skew(30deg, 30deg);
+} */
+
+/* #19 Animations */
+@keyframes myAnimation {
+    from {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+        box-shadow: 0px 0px 25px yellow;
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+img {
+    animation: blurAnimation 4s infinite;
+}
+
+@keyframes blurAnimation {
+    from {
+        filter: blur(10px);
+    }
+
+    50% {
+        filter: blur(0px);
+    }
+
+    to {
+        filter: blur(10px);
+    }
+}
+
+/* Cursor */
+/* pointer-events: none; - не даёт пользователю выделять контент курсором или нажатием на экран
+cursor: ; - позволяет стилизовать курсор */
+
+/* #21 Text */
+.text {
+    margin: 5%;
+    color: aliceblue;
+    column-count: 3;
+    column-rule: 1px solid aliceblue;
+    column-gap: 5%;
+}
+
+/* #22 Media requests */
+@media print and (not(color)){
+    body {
+        font-style: italic;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width:1280px) {
+    body {
+        color: red;
+    }
 }
