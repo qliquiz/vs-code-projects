@@ -1,0 +1,53 @@
+body {
+    width: 100%;
+    text-align: center;
+}
+
+.menu {
+    margin: 5% 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+img {
+    padding-top: 150px;
+}
+
+.cont {
+    margin: 0 2%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    width: 20%;
+}
+
+.dish1 {
+    position: absolute;
+    top: -30px;
+    left: 65px;
+    width: 520px;
+}
+
+.dish2 {
+    position: absolute;
+    top: -30px;
+    left: 375px;
+    width: 520px;
+}
+
+.dish3 {
+    position: absolute;
+    top: -30px;
+    left: 685px;
+    width: 520px;
+}
+
+.dish4 {
+    position: absolute;
+    top: -30px;
+    left: 995px;
+    width: 520px;
+}
+

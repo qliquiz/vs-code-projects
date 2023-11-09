@@ -1,17 +1,42 @@
-h1 {
-    color: black;
-    font-size: 3rem;
-}
-.other-h1 {
-    color: aqua;
-}
-.lowercase {
-    text-transform: lowercase;
-}
-#third {
-    color: blue;
-}
-/* Для стилизации блоков используется div{...} */
-/* Для стилизации строк используется span{...} */
+/* #8 Units & Overflow */
+/* font-size: 80%; - размер шрифта будет 80% от размера шрифта родителя, иначе - от дефолтного браузерного значения(16рх)
+font-size: 2em; - увеличивает размер шрифта в n раз(в данном случае в 2 раза) от размера шрифта родителя, иначе - дефолтного браузерного
+font-size: 2rem; - увеличивает размер шрифта в n раз(в данном случае в 2 раза) от размера дефолтного браузерного шрифта
 
-/* colors.co - сайт для подбора цветов */
+Чтобы растянуть элемент, например, на всю область, можно использовать viewvoards и поместить элемент в левый верхний угол:
+width: 100vw;
+height: 100vh;
+position: absolute;
+top: 0;
+left: 0;
+
+calc(100px - 20px + 3em); - ипользуется для тонкой настройки габаритов
+
+overflow: auto; - добавляет скролл, если контент не влезает в элемент */
+
+/* #13 Display vs Visibility */
+/* display:none; - полностью убирает элемент из документа, он больше не занимает места и не виден для поисковых систем, 
+из-за чего может пострадать рейтинг ранжирования
+visibility: hidden; - элемент скрывается, всё так же занимает своё место и виден поисковым системам
+opacity: 0; - делает элемент полностью прозрачным. С помощью transition можно будет сделать анимацию плавного появления
+color: transparent - прозрачный текст */
+
+/* #14 Background & #15 Gradients*/
+.wrapper {
+    width: 100%;
+    height: 100vh;
+
+    background-color: gainsboro;
+    background-image: url('../webcademy-js-6-hours-course/img/js.png'), url('./imgs/ocean.webp');
+
+    /* background-size: contain; - изображение сохраняет свои изначальные пропорции */
+    /* background-size: cover; - размер изображения соответствует размеру элемента, что приводит к обрезанию */
+    /* background-size: 100px 200px; - точное значение */
+
+    background-repeat: no-repeat;
+    /* background-repeat: repeat-x; - дублирование по горизонтали */
+    /* background-repeat: repeat-y; - дублирование по вертикали */
+
+    background-position: center center;
+    /* background-attachment: fixed; - изображение всегда в поле зрения вне зависимости от скрола */
+}

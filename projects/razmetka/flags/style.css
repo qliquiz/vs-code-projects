@@ -1,0 +1,88 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding-left:15px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.flag {
+    float: left;
+    width: 150px;
+    height: 100px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+}
+
+.ireland {
+    background-image: linear-gradient(to right,
+        #009B48 33%,
+        #FFF 33%,
+        #FFF 66%,
+        #FF7900 66%
+    );
+}
+
+.trinidad {
+    background-image: linear-gradient(45deg,
+        #CE1126 40%,
+        #FFF 40%,
+        #FFF 43%,
+        #000 43%,
+        #000 57%,
+        #FFF 57%,
+        #FFF 60%,
+        #CE1126 60%
+    );
+}
+
+.congo {
+    background-image: linear-gradient(135deg,
+        #009543 40%,
+        #FBDE4A 40%,
+        #FBDE4A 60%,
+        #DC241F 60%
+    );
+}
+
+.mauritius {
+    background-image: linear-gradient(to bottom,
+        #EA2839 25%,
+        #1A206D 25%,
+        #1A206D 50%,
+        #FFD500 50%,
+        #FFD500 75%,
+        #00A551 75%
+    );
+}
+
+.botswana {
+    background-image: linear-gradient(to bottom,
+        #449ED3,
+        #449ED3 30%,
+        #FFF 30%,
+        #FFF 35%,
+        #000 35%,
+        #000 65%,
+        #FFF 65%,
+        #FFF 70%,
+        #449ED3 70%,
+        #449ED3
+    );
+}
+
+.madagaskar {
+    background-image: linear-gradient(to bottom,
+        #FC3D32 50%,
+        #007E3A 50%
+    );
+
+    background-position: 50px 0;
+    background-repeat: no-repeat;
+}

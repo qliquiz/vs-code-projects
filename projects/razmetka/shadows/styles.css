@@ -1,0 +1,34 @@
+body {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-gap: 10%;
+    margin: 40px;
+    background-color: rgb(20, 20, 22);
+}
+
+.square1 {    
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    border: blue 5px solid;
+    background-color:darkcyan;
+}
+
+.square2 {    
+    width: 200px;
+    height: 200px;
+    border: blue 5px solid;
+    background-color:darkcyan;
+}
+
+.first {
+    box-shadow: 10px 10px 5px rgb(225, 0, 255);
+}
+
+.second {
+    box-shadow: inset 10px 10px 5px rgb(225, 0, 255);
+}
+
+.third {
+    box-shadow: 20px 20px 5px rgb(225, 0, 255), 20px 0 5px rgb(225, 0, 255);
+}

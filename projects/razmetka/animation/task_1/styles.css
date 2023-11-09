@@ -1,0 +1,12 @@
+body {
+    background-image: url(./imgs/background-image.jpg);
+    background-size: 100%;
+}
+
+.ship {
+    
+}
+
+img {
+    width: 200px;
+}
