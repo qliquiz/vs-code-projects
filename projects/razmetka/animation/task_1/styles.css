@@ -1,12 +1,110 @@
-body {
-    background-image: url(./imgs/background-image.jpg);
-    background-size: 100%;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.ship {
-    
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: blueviolet;
+    background-image: url('./imgs/background-image.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 img {
-    width: 200px;
+    position: absolute;
+    width: 10%;
+}
+
+.Ship {
+    animation: swim 8s infinite;
+}
+
+.Mig {
+    animation: fly 8s infinite;
+}
+
+@keyframes swim {
+    from {
+        bottom: 165px;
+        left: 1200px;
+    }
+    
+    30% {
+        bottom: 50px;
+        left: 1000px;
+    }
+
+    60% {
+        bottom: 165px;
+        left: 700px;
+        transform: scale(1, 1);
+    }
+
+    75% {
+        transform: scale(-1, 1);
+    }
+
+    90% {
+        bottom: 165px;
+        left: 1200px;
+    }
+
+    to {
+        bottom: 165px;
+        left: 1200px;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes fly {
+    from {
+        top: 250px;
+        left: 1200px;
+    }
+    
+    25% {
+        top: 200px;
+        left: 200px;
+        transform: scale(1, 1);
+    }
+
+    28% {
+        transform: scale(-1, 1);
+    }
+
+    55% {
+        top: 200px;
+        left: 1200px;
+        transform: scale(-1, 1);
+    }
+
+    58% {
+        transform: scale(1, 1);
+    }
+
+    75% {
+        top: 250px;
+        left: 200px;
+        transform: scale(1, 1);
+    }
+
+    78% {
+        transform: scale(-1, 1);
+    }
+
+    97% {
+        top: 250px;
+        left: 1200px;
+        transform: scale(-1, 1);
+    }
+
+    to {
+        top: 250px;
+        left: 1200px;
+        transform: scale(1, 1);
+    }
 }
