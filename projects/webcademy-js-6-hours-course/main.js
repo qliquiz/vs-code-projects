@@ -239,7 +239,7 @@ btn.addEventListener('click', function() {
 }) */
 
 // ====================Промисы====================
-/* const myPromise = new Promise((resolve, reject) => {
+const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
         // сделали какой-то запрос на сервер
         const response = true; // получили какой-то ответ
@@ -253,4 +253,4 @@ btn.addEventListener('click', function() {
     console.log(data)
 }).catch((data) => {
     console.log(data)
-}); */
+});

@@ -1,6 +1,5 @@
 .index-grid {
     display: grid;
-    flex-wrap: wrap;
     text-align: center;
     grid-template-rows: auto auto auto 100px;
     grid-gap: 20px;
