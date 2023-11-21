@@ -138,3 +138,29 @@ h3 {
     color: rgb(111, 111, 111);
 }
 
+@media screen and (max-width: 500px) {
+    .navp {
+        font-size: 80%;
+    }
+
+    .card-p {
+        font-size: 10%;
+    }
+
+    .price {
+        font-size: 90%;
+        font-weight: 600;
+    }
+    
+    .ruble {
+        font-size: 75%;
+    }
+
+    .name {
+        font-size: 12px;
+    }
+    
+    .description {
+        font-size: 10px;
+    }
+}
