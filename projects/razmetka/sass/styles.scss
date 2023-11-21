@@ -1,0 +1,57 @@
+$main-color: yellow;
+$second-color: adjust-hue($main-color, 120deg);
+$third-color: adjust-hue($main-color, -120deg);
+
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(11, 11, 11);
+    color: aliceblue;
+
+    & h1 {
+        width: 50%;
+        border-radius: 30px;
+        padding: 25px 50px;
+        box-shadow: 0 0 25px $third-color;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 50px;
+    
+        .container {
+            flex-direction: column;
+            padding: 0 25px 25px 25px;
+    
+            & img {
+                width: 300px;
+                border: 1px black solid;
+                border-radius: 30px;
+                margin-bottom: 25px;
+            }
+    
+            & p {
+                padding: 10px 0;
+                border: 1px black solid;
+                border-radius: 30px;
+                font-size: 20px;
+            }
+    
+            .first {
+                box-shadow: 0 0 25px $main-color;
+            }
+    
+            .second {
+                box-shadow: 0 0 25px $second-color;
+            }
+        }
+    }
+}
