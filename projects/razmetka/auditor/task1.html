@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>sdf</title>
+</head>
+<body>
+	<div>сейчас будет список:</div>
+
+	<ul> 
+		<li>первый айтем</li> 
+		<li>айтем намбе ту</li> 
+	</ul>
+
+	<table id="table">
+		<tbody>
+			<tr>
+				<td>111</td>
+				<td>111</td>
+				<td>111</td>
+			</tr>
+			<tr>
+				<td>222</td>
+				<td>222</td>
+				<td>222</td>
+			</tr>
+			<tr>
+				<td>333</td>
+				<td>333</td>
+				<td>333</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script>
+		let secondtLI = document.querySelector("li:last-child");
+		console.log(secondtLI);
+
+		let table = document.querySelector("table");
+		for (let i = 0; i < table.rows.length; i++) {
+			table.rows[i].cells[i].style.backgroundColor = "#FFFF00";
+		}
+	</script>
+</body>
+</html>

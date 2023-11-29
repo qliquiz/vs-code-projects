@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>sdf</title>
+</head>
+<body>
+    <form name="search">
+    <label>Label:
+        <input type="text" name="search">
+    </label>
+    <input type="submit" value="Input value!">
+</form>
+<hr>
+<form name="search-person">
+    Text:
+    <table id="age-table">
+    <tr>
+        <td>TD:</td>
+        <td id="age-list">
+            <label><input type="radio" name="age" value="young">Young 18</label>
+            <label><input type="radio" name="age" value="mature">18-50</label>
+            <label><input type="radio" name="age" value="senior">Senior 50</label>
+        </td>
+    </tr>
+
+    <tr>
+        <td>TD:</td>
+        <td>
+        <input type="text" name="info[0]">
+        <input type="text" name="info[1]">
+        <input type="text" name="info[2]">
+        </td>
+    </tr>
+
+    </table>
+
+    <input type="submit" value="submit!">
+</form>
+
+    <script>
+        let table = document.querySelector("table");
+        let labels = table.querySelectorAll("label");
+        console.log(labels);
+
+        let latestTr = table.querySelector("tr:last-child > td");
+        console.log(latestTr);
+
+        let secondForm = document.getElementsByName("search-person")[0];
+        console.log(secondForm);
+
+        let searchForm = document.getElementsByName("search")[0];
+        console.log(search);
+
+        let searchFirstInput = searchForm.querySelector("input");
+        console.log(searchFirstInput);
+
+        let info = document.getElementsByName("info[0]")[0];
+        console.log(info);
+
+        let info2 = table.querySelector("tr:last-child > td:last-child > input");
+        console.log(info2);
+        </script>
+</body>
+
+</html>
