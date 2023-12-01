@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(18, 18, 18);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+    border: 1px whitesmoke solid;
+    border-radius: 10px;
+}
+
+.slider img {
+    width: 1000px;
+    height: 600px;
+}
+
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    border-radius: 10%;
+    font-size: 35px;
+    color: whitesmoke;
+}
+
+.prev-button {
+    left: 8%;
+}
+
+.next-button {
+    right: 8%;
+}

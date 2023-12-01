@@ -248,9 +248,4 @@ const myPromise = new Promise((resolve, reject) => {
         } else {
             reject('NOT OK');
         }
-    }, 1000);
-}).then((data) => {
-    console.log(data)
-}).catch((data) => {
-    console.log(data)
-});
+    }, 1000)}).then((data) => { console.log(data) }).catch((data) => { console.log(data) });
