@@ -37,6 +37,18 @@ bool equal(int N, int S, int sum) {
     return equal(N, S, sum);
 } 
 
+int countDivisors(int n, int i, int count) {
+    if (i == 1) return count;
+    else {
+        if (n % i == 0) return countDivisors(n, i - 1, count + 1);
+        else return countDivisors(n, i - 1, count);
+    }
+}
+
+void divs(int n) {
+    cout << countDivisors(n, n - 1, 0) << endl;
+}
+
 int main()
 {
     // №1
@@ -53,6 +65,9 @@ int main()
     // №3
     /* if(equal(1234, 10, 0)) cout << "true" << endl;
     else cout << "false" << endl; */
+
+    // №4
+    divs(18);
 
     return 0;
 }
