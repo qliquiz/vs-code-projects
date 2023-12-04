@@ -27,34 +27,54 @@ bool isPalindrome(string word, int start, int end) {
 }
 
 bool equal(int N, int S, int sum) {
-    if (sum == S) return true;
+    if (sum == S) return true; // Если сумма чисел равна числу S, возвращаем true
 
-    if (N == 0) return false;
+    if (N == 0) return false; // Если не вернули true, а N уже закончилось, возвращаем false
 
-    sum += N % 10;
-    N = N / 10;
+    sum += N % 10; // sum + одно число из N
+    N = N / 10; // N на число меньше
 
     return equal(N, S, sum);
 } 
 
-int countDivisors(int n, int i, int count) {
+int divs(int n, int i, int count) {
     if (i == 1) return count;
     else {
-        if (n % i == 0) return countDivisors(n, i - 1, count + 1);
-        else return countDivisors(n, i - 1, count);
+        if (n % i == 0) return divs(n, i - 1, count + 1);
+        else return divs(n, i - 1, count);
     }
 }
 
-void divs(int n) {
-    cout << countDivisors(n, n - 1, 0) << endl;
+int binomialCoefficient(int n, int k) {
+    if (k == 0 || k == n) return 1; // Базовый случай: C(n,0) или C(n,n) всегда равно 1
+    // Рекурсивный вызов для двух вариантов: выбор k-го элемента и не выбор k-го элемента
+    else return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
+}
+
+void pascal(int n, int line) {
+    if (line >= n) return;  // Завершаем рекурсию
+    else {
+        // Выводим binomialCoefficient для данной строки и i-го элемента
+        for (int i = 0; i < line; i++) cout << binomialCoefficient(line, i) << " ";
+        cout << endl;
+        pascal(n, line + 1);  // Рекурсивный вызов для следующей строки
+    }
+}
+
+int fib(int n) {
+    if (n <= 1) return n; // Базовый случай: fib(0) = 0, fib(1) = 1
+    else return fib(n - 1) + fib(n - 2); // Рекурсивный вызов для fib(n-1) и fib(n-2)
+}
+
+int nod(int a, int b) {
+    if (b == 0) return a; // Базовый случай: НОД(a, 0) = a
+    else return nod(b, a % b); // Рекурсивный вызов с использованием алгоритма Евклида: НОД(a, b) = НОД(b, a % b)
 }
 
 int main()
 {
     // №1
-    /* int n;
-    cin >> n;
-    primeFactors(n, 2); */
+    // primeFactors(18, 2);
 
     // №2
     /* string word;
@@ -63,11 +83,19 @@ int main()
     else cout << "NO" << endl; */
 
     // №3
-    /* if(equal(1234, 10, 0)) cout << "true" << endl;
-    else cout << "false" << endl; */
+    // cout << equal(1234, 10, 0);
 
     // №4
-    divs(18);
+    // cout << divs(18, 18 - 1, 0);
+
+    // №5
+    // pascal(8, 0);
+
+    // №6
+    // cout << fib(6);
+
+    // №10
+    // cout << nod(27, 81);
 
     return 0;
 }
