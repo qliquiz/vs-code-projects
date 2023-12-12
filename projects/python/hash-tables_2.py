@@ -1,43 +1,35 @@
-def rabin_karp(pattern, text):
-    # Инициализируем константы для хэш-функции
-    prime = 101  # Простое число для вычисления хэша
-    modulo = 10**9 + 9  # Большое число для вычисления хэша
+D = 256
+Q = 101
 
-    len_pattern = len(pattern)
-    len_text = len(text)
-
-    pattern_hash = 0
-    text_hash = 0
-    base = 1
-
-    # Вычисляем хэш для образца и первой подстроки текста
-    for i in range(len_pattern):
-        pattern_hash = (pattern_hash + ord(pattern[i]) * base) % modulo
-        text_hash = (text_hash + ord(text[i]) * base) % modulo
-        if i != len_pattern - 1:
-            base = (base * prime) % modulo
-
+def search_rabin_karp(pattern, text):
+    M = len(pattern)
+    N = len(text)
+    p = 0  # хеш для pattern
+    t = 0  # хеш для text
+    h = pow(D, M - 1, Q)
     result = []
+    
+    for i in range(M):
+        p = (D * p + ord(pattern[i])) % Q
+        t = (D * t + ord(text[i])) % Q
 
-    # Поиск образца в тексте
-    for i in range(len_text - len_pattern + 1):
-        if pattern_hash == text_hash:
-            # Проверяем совпадение строк
-            if pattern == text[i:i+len_pattern]:
+    for i in range(N-M+1):
+        if p == t:
+            match = True
+            for j in range(M):
+                if pattern[j] != text[i+j]:
+                    match = False
+                    break
+            if match:
                 result.append(i)
+        if i < N-M:
+            t = (D * (t - ord(text[i]) * h) + ord(text[i + M])) % Q
+            if t < 0:
+                t = t + Q
 
-        # Обновляем хэш для следующей подстроки
-        if i != len_text - len_pattern:
-            remove_char_hash = ord(text[i]) * base % modulo
-            add_char_hash = ord(text[i + len_pattern]) % modulo
-            text_hash = ((text_hash - remove_char_hash + modulo) * prime + add_char_hash) % modulo
+    print(result)
 
-    return result
 
-# Пример использования
-pattern = input("Паттерн: ")
-text = input("Текст: ")
-
-result = rabin_karp(pattern, text)
-
-print(result)
+Pattern = "aba"
+Text = "abacaba"
+search_rabin_karp(Pattern, Text)
