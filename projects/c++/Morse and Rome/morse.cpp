@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Функция для кодирования текста в азбуку Морзе
 string encodeToMorse(const string &text) {
     map<char, string> morseAlphabet{
         {'A', ".-"}, {'B', "-..."}, {'C', "-.-."}, {'D', "-.."}, {'E', "."}, {'F', "..-."},
@@ -17,17 +16,15 @@ string encodeToMorse(const string &text) {
     };
 
     string morseText;
+
     for (char ch : text) {
-        if (morseAlphabet.find(toupper(ch)) != morseAlphabet.end()) {
-            morseText += morseAlphabet[toupper(ch)] + " ";
-        } else if (ch == ' ') {
-            morseText += "/ ";
-        }
+        if (morseAlphabet.find(toupper(ch)) != morseAlphabet.end()) morseText += morseAlphabet[toupper(ch)] + " ";
+        else if (ch == ' ') morseText += "/ ";
     }
+    
     return morseText;
 }
 
-// Функция для декодирования последовательности точек и тире в текст
 string decodeFromMorse(const string &morseCode) {
     map<string, char> morseAlphabet{
         {".-", 'A'}, {"-...", 'B'}, {"-.-.", 'C'}, {"-..", 'D'}, {".", 'E'}, {"..-.", 'F'},
@@ -42,23 +39,19 @@ string decodeFromMorse(const string &morseCode) {
     string decodedText;
     string word;
     string morseWord;
+    
     for (char ch : morseCode) {
         if (ch == ' ' || ch == '/') {
             if (!morseWord.empty()) {
-                if (morseAlphabet.find(morseWord) != morseAlphabet.end()) {
-                    decodedText += morseAlphabet[morseWord];
-                } else if (morseWord == "/") {
-                    decodedText += " ";
-                }
+                if (morseAlphabet.find(morseWord) != morseAlphabet.end()) decodedText += morseAlphabet[morseWord];
+                else if (morseWord == "/") decodedText += " ";
+
                 morseWord.clear();
             }
-        } else {
-            morseWord += ch;
-        }
+        } else morseWord += ch;
     }
-    if (!morseWord.empty() && morseAlphabet.find(morseWord) != morseAlphabet.end()) {
-        decodedText += morseAlphabet[morseWord];
-    }
+    if (!morseWord.empty() && morseAlphabet.find(morseWord) != morseAlphabet.end()) decodedText += morseAlphabet[morseWord];
+    
     return decodedText;
 }
 
