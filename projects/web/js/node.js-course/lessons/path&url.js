@@ -19,4 +19,5 @@ console.log('Расширение файла', path.extname(full_path));
 const siteURL = 'http://localhost:8080/users?id=2222';
 const url = new URL(siteURL);
 
+console.log();
 console.log(url);
