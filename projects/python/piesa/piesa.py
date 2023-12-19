@@ -1,0 +1,33 @@
+def group_roles(piesa):
+    with open(piesa, 'r') as text:
+        text.readlines()
+        role_lines = {}
+        i = 0
+        
+        for line in text:
+            i += 1
+            
+            if ": " in line:
+                role, text = line.split(":")
+                role = role.strip()
+                text = text.strip()
+                
+                if role in role_lines:
+                    role_lines[role].append(str(i) + ") " + text)
+                else:
+                    role_lines[role] = [str(i) + ") " + text]
+            else:
+                continue
+        
+        result = ""
+        for role in role_lines:
+            result += role + ":\n"
+            for i, line in enumerate(role_lines[role], 1):
+                result += f"{line}\n"
+            result += "\n"
+        
+    return result
+
+
+result = group_roles("roles.txt")
+print(result)
