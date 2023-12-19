@@ -1,12 +1,11 @@
-with open("piesa.txt", "r", encoding="utf-8") as text:
-    text.readlines()
+with open(r"projects\python\piesa\piesa.txt", "r", encoding="utf-8") as text:
     role_lines = {}
     i = 0
     
     for line in text:
         i += 1
         
-        if ": " in line:
+        if line[0] == line[0].upper() and ": " in line:
             role, text = line.split(":")
             role = role.strip()
             text = text.strip()
@@ -25,4 +24,4 @@ with open("piesa.txt", "r", encoding="utf-8") as text:
             result += f"{line}\n"
         result += "\n"
     
-print(result)
+    print(result)
