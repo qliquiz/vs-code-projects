@@ -1,4 +1,4 @@
-with open(r"projects\python\piesa\piesa.txt", "r", encoding="utf-8") as text:
+with open(r"projects\python\piesa\roles.txt", "r", encoding="utf-8") as text:
     role_lines = {}
     i = 0
     
