@@ -14,8 +14,10 @@ with open(r"projects\python\piesa\roles.txt", "r", encoding="utf-8") as text:
                 role_lines[role].append(str(i) + ") " + text)
             else:
                 role_lines[role] = [str(i) + ") " + text]
-        else:
-            continue
+        elif line.startswith(" "):
+            text = line[5:]
+            text = text.strip()
+            role_lines[role].append(str(i) + ") " + text)
     
     result = ""
     for role in role_lines:
