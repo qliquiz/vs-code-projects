@@ -1,21 +1,20 @@
-def dfs(graph, vertex, visited):
-    visited[vertex] = True
-    for neighbor, connected in enumerate(graph[vertex]):
-        if connected and not visited[neighbor]:
-            dfs(graph, neighbor, visited)
+def dfs(graph, vert, is_visited):
+    is_visited[vert] = True
+    for neighbor, is_connected in enumerate(graph[vert]):
+        if is_connected and not is_visited[neighbor]:
+            dfs(graph, neighbor, is_visited)
 
-def count_connected_components(graph):
-    n = len(graph)
-    visited = [False] * n
+def ccc(graph):
+    length = len(graph)
+    cnt = 0
+    is_visited = [False] * length
 
-    count = 0
+    for vert in range(length):
+        if not is_visited[vert]:
+            dfs(graph, vert, is_visited)
+            cnt += 1
 
-    for vertex in range(n):
-        if not visited[vertex]:
-            dfs(graph, vertex, visited)
-            count += 1
-
-    return count
+    return cnt
 
 n = int(input("Введите количество вершин: "))
 graph = []
@@ -24,6 +23,4 @@ for _ in range(n):
     row = list(map(int, input().split()))
     graph.append(row)
 
-result = count_connected_components(graph)
-
-print(result)
+print(ccc(graph))
