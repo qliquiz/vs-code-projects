@@ -106,5 +106,6 @@
     "ctime": "cpp",
     "iomanip": "cpp",
     "sstream": "cpp"
-  }
+  },
+  "editor.fontSize": 14
 }
