@@ -3,7 +3,7 @@
 using namespace std;
 
 void InsertSort(int *arr) {
-    int buf, i, j, size = sizeof(arr);
+    int buf, i, j, size = sizeof(arr)/sizeof(arr[0]);
     for (i = 1; i < size; i++) {
         buf = arr[i];
         for (j = i - 1; j >= 0 && buf < arr[j]; j--) arr[j + 1] = arr[j];

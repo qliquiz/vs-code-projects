@@ -1,21 +1,58 @@
 #include <iostream>
+#define COLUMNS 3
 
 using namespace std;
 
-void insert(int* arr, int size, int insert_index, int n) {
-    for (int i = size - 1; i > insert_index; i--) arr[i] = arr[i - 1];
-    arr[insert_index] = n;
+void insert(int* arr, int length, int ins_index, int n) {
+    for (int i = length - 1; i > ins_index; i--) arr[i] = arr[i - 1];
+    arr[ins_index] = n;
+}
+
+void del(int* arr, int length, int del_index) {
+    for (int i = del_index; i < length - 1; i++) arr[i] = arr[i + 1];
+}
+
+void insertSort(int* arr, int length) {
+    int buf, i, j;
+    for (i = 1; i < length; i++) {
+        buf = arr[i];
+        for (j = i - 1; j >= 0 && buf < arr[j]; j--) arr[j + 1] = arr[j];
+        arr[j + 1] = buf;
+    }
+}
+
+void showDoubleArr(int (*arr)[COLUMNS], int rows) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < COLUMNS; j++) cout << arr[i][j] << ' ';
+        cout << '\n';
+    }
+}
+
+void showDoubleArr2(int* arr, int rows, int columns) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) cout << arr[i * columns + j] << ' ';
+        cout << '\n';
+    }
 }
 
 int main()
 {
-    int arr[10] = {1, 2, 4};
-    int size = sizeof(arr)/sizeof(arr[0]);
+    /* int arr[10] = {4, 2, 1};
+    int length = sizeof(arr)/sizeof(*arr);
 
-    insert(arr, size, 2, 3);
-    insert(arr, size, 4, 5);
+    insert(arr, length, 2, 3);
+
+    del(arr, length, 3);
+
+    insertSort(arr, length);
     
-    for (int i = 0; i < size; i++) cout << arr[i] << '\t';
+    for (int i = 0; i < length; i++) cout << arr[i] << ' '; */
+
+    /* int arr2[][COLUMNS] = {{1, 2, 3}, {4, 5, 6}};
+    int arr3[] = {1, 2, 3, 4, 5, 6};
+
+    showDoubleArr(arr2, sizeof(arr2)/sizeof(*arr2));
+    showDoubleArr2(arr3, 2, 3); */
 
     return 0;
 }
