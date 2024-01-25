@@ -1,7 +1,6 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
         {
             "name": "(gdb) Запуск канала",
             "type": "cppdbg",
@@ -50,17 +49,6 @@
                     "ignoreFailures": true
                 }
             ]
-        },
-        {
-            "name": "(Windows) Запустить",
-            "type": "cppvsdbg",
-            "request": "launch",
-            "program": "Введите имя программы, например: ${workspaceFolder}/a.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "console": "externalTerminal"
         },
         {
             "name": "C/C++: g++.exe сборка и отладка активного файла",
@@ -113,6 +101,23 @@
                 }
             ],
             "preLaunchTask": "C/C++: gcc.exe сборка активного файла"
+        },
+        {
+            "name": "Launch Program(lldb)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/no1_2",
+            "args": [
+                "4",
+                "3",
+                "2",
+                "1"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "lldb"
         },
         {
             "name": "C/C++: clang++ сборка и отладка активного файла",
