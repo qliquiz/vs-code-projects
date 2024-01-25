@@ -3,15 +3,35 @@
         {
             "name": "windows-gcc-x64",
             "includePath": [
-                "${workspaceFolder}/**"
+                "/Users/artemgorev/Documents/vs-code-projects/**"
             ],
-            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
-            "cStandard": "${default}",
-            "cppStandard": "${default}",
-            "intelliSenseMode": "${default}",
+            "compilerPath": "/usr/bin/gcc",
             "compilerArgs": [
                 ""
-            ]
+            ],
+            "compilerPathInCppPropertiesJson": "/usr/bin/clang++",
+            "mergeConfigurations": false,
+            "browse": {
+                "path": [
+                    "/Users/artemgorev/Documents/vs-code-projects/**",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        },
+        {
+            "name": "clang",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64",
+            "compilerPath": "/usr/bin/clang++"
         }
     ],
     "version": 4
