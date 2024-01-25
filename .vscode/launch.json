@@ -103,7 +103,7 @@
             "preLaunchTask": "C/C++: gcc.exe сборка активного файла"
         },
         {
-            "name": "C/C++: clang++ сборка и отладка активного файла",
+            "name": "clang++",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
