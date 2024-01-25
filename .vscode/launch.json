@@ -103,23 +103,6 @@
             "preLaunchTask": "C/C++: gcc.exe сборка активного файла"
         },
         {
-            "name": "Launch Program(lldb)",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceRoot}/no1_2",
-            "args": [
-                "4",
-                "3",
-                "2",
-                "1"
-            ],
-            "stopAtEntry": false,
-            "cwd": "${workspaceRoot}",
-            "environment": [],
-            "externalConsole": true,
-            "MIMode": "lldb"
-        },
-        {
             "name": "C/C++: clang++ сборка и отладка активного файла",
             "type": "cppdbg",
             "request": "launch",
