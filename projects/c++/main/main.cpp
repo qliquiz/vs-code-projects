@@ -1,6 +1,7 @@
 #include <iostream>
 
-using namespace std;
+using std::cout;
+using std::endl;
 
 int main()
 {
@@ -17,3 +18,6 @@ in – имя переменной типа ifstream
 in.is_open() – был ли файл открыт
 in.fail() – была ли ошибка при последней операции
 in.eof() – закончился ли файл */
+
+/* Прототипы функций
+void fun(int a, int b); */
