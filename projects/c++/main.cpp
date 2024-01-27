@@ -1,11 +1,12 @@
 #include <iostream>
 
 using std::cout;
+using std::cin;
 using std::endl;
 
 int main()
 {
-    // TODO
+    setlocale(LC_ALL, "ru");
 
     return 0;
 }
