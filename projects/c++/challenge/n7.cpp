@@ -2,8 +2,9 @@
 
 using namespace std;
 
+// Вывод массива
 void showArr(int** arr, int length) {
-    for (int i = 0; i < length; i++) cout << "(" << arr[i][0] << ", " << arr[i][1] << ") ";
+    for (int i = 0; i < length; i++) cout << "(" << *arr[i] << ", " << arr[i][1] << ") ";
     cout << endl;
 }
 
@@ -27,6 +28,47 @@ void mySort(int** arr, int length) {
     }
 }
 
+// Удаление одинаковых точек
+void deleteRepeats(int** arr, int& length) {
+    for (int i = 0; i < length - 1; i++) {
+        if (*arr[i] == *arr[i + 1] && arr[i][1] == arr[i + 1][1]) {
+            length--;
+            for (int j = i; j < length; j++) {
+                *arr[j] = *arr[j + 1];
+                arr[j][1] = arr[j + 1][1];
+            }
+        }
+    }
+}
+
+void showArr2(int* arr, int length) {
+    for (int i = 0; i < length; i += 2) cout << "(" << arr[i] << ", " << arr[i + 1] << ") ";
+    cout << endl;
+}
+
+void mySort2(int* arr, int length) {
+    for (int i = 1; i < length; i++) {
+        int sorted = i - 1;
+        int temp;
+        while (sorted > -1 && arr[sorted] > arr[sorted + 1]) {
+            temp = arr[sorted];
+            arr[sorted] = arr[sorted + 1];
+            arr[sorted + 1] = temp;
+            sorted--;
+        }
+    }
+}
+
+void deleteRepeats2(int* arr, int& length) {
+    for (int i = 0; i < length - 1; i++) {
+        if (arr[i] == arr[i + 1]) {
+            length--;
+            for (int j = i; j < length; j++) arr[j] = arr[j + 1];
+        }
+    }
+}
+
+// Проверка, лежат ли 3 точки на одной прямой
 bool arePointsLinear(int x1, int y1, int x2, int y2, int x3, int y3) {
     return (y2 - y1) * (x3 - x2) == (y3 - y2) * (x2 - x1);
 }
@@ -34,10 +76,24 @@ bool arePointsLinear(int x1, int y1, int x2, int y2, int x3, int y3) {
 // Функция для вычисления всех возможных групп точек, лежащих на одной прямой
 void findLinearPoints(int** arr, int length) {
     int** result = new int*[length];
-    for (int i = 0; i < length; i++) {
-        if (arePointsLinear(*arr[i], arr[i][1], *arr[i + 1], arr[i + 1][1], *arr[i + 2], arr[i + 2][1])) {
-
+    for (int i = 0; i < length; i++) result[i] = new int[length];
+    for (int i = 0; i < length - 2; i++) {
+        int pos = 0;
+        for (int j = i; j < length - 1; j++) {
+            for (int k = j; k < length; k++) {
+                if (arePointsLinear(*arr[i], arr[i][1], *arr[j], arr[j][1], *arr[k], arr[k][1])) {
+                    result[i][pos++] = *arr[i];
+                    result[i][pos++] = arr[i][1];
+                    result[i][pos++] = *arr[j];
+                    result[i][pos++] = arr[j][1];
+                    result[i][pos++] = *arr[k];
+                    result[i][pos++] = arr[k][1];
+                }
+            }
         }
+        mySort2(result[i], pos);
+        deleteRepeats2(result[i], pos);
+        showArr2(result[i], pos);
     }
 }
 
@@ -62,20 +118,11 @@ int main() {
 
     mySort(points, length);
 
-    // Удаление повторов
-    for (int i = 0; i < length - 1; i++) {
-        if (*points[i] == *points[i + 1] && points[i][1] == points[i + 1][1]) {
-            length--;
-            for (int j = i; j < length; j++) {
-                *points[j] = *points[j + 1];
-                points[j][1] = points[j + 1][1];
-            }
-        }
-    }
+    deleteRepeats(points, length);
 
     showArr(points, length);
 
-    // find2linearPoints(points, n); // вызываем функцию
+    findLinearPoints(points, length); // вызываем функцию
 
     delete [] points;
 
