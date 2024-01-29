@@ -41,7 +41,7 @@ void deleteRepeats(int** arr, int& length) {
     }
 }
 
-void showArr2(int* arr, int length) {
+/* void showArr2(int* arr, int length) {
     for (int i = 0; i < length; i += 2) cout << "(" << arr[i] << ", " << arr[i + 1] << ") ";
     cout << endl;
 }
@@ -66,7 +66,7 @@ void deleteRepeats2(int* arr, int& length) {
             for (int j = i; j < length; j++) arr[j] = arr[j + 1];
         }
     }
-}
+} */
 
 // Проверка, лежат ли 3 точки на одной прямой
 bool arePointsLinear(int x1, int y1, int x2, int y2, int x3, int y3) {
@@ -75,25 +75,13 @@ bool arePointsLinear(int x1, int y1, int x2, int y2, int x3, int y3) {
 
 // Функция для вычисления всех возможных групп точек, лежащих на одной прямой
 void findLinearPoints(int** arr, int length) {
-    int** result = new int*[length];
-    for (int i = 0; i < length; i++) result[i] = new int[length];
     for (int i = 0; i < length - 2; i++) {
-        int pos = 0;
-        for (int j = i; j < length - 1; j++) {
-            for (int k = j; k < length; k++) {
-                if (arePointsLinear(*arr[i], arr[i][1], *arr[j], arr[j][1], *arr[k], arr[k][1])) {
-                    result[i][pos++] = *arr[i];
-                    result[i][pos++] = arr[i][1];
-                    result[i][pos++] = *arr[j];
-                    result[i][pos++] = arr[j][1];
-                    result[i][pos++] = *arr[k];
-                    result[i][pos++] = arr[k][1];
-                }
+        for (int j = i + 1; j < length - 1; j++) {
+            for (int k = j + 1; k < length; k++) {
+                if (arePointsLinear(*arr[i], arr[i][1], *arr[j], arr[j][1], *arr[k], arr[k][1])) 
+                    cout << '(' << *arr[i] << ", " << arr[i][1] << ") (" << *arr[j] << ", " << arr[j][1] << ") (" << *arr[k] << ", " << arr[k][1] << ')' << endl;
             }
         }
-        mySort2(result[i], pos);
-        deleteRepeats2(result[i], pos);
-        showArr2(result[i], pos);
     }
 }
 
@@ -120,7 +108,7 @@ int main() {
 
     deleteRepeats(points, length);
 
-    showArr(points, length);
+    // showArr(points, length);
 
     findLinearPoints(points, length); // вызываем функцию
 
