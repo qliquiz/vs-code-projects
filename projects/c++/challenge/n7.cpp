@@ -18,12 +18,16 @@ void mySort(int** arr, int length) {
             arr[sorted] = arr[sorted + 1];
             arr[sorted + 1] = temp;
             sorted--;
-            if (sorted > -1 && *arr[sorted] == *arr[sorted + 1] && arr[sorted][1] > arr[sorted + 1][1]) {
-                temp = arr[sorted];
-                arr[sorted] = arr[sorted + 1];
-                arr[sorted + 1] = temp;
-                sorted--;
-            }
+        }
+    }
+    for (int i = 1; i < length; i++) {
+        int sorted = i - 1;
+        int* temp;
+        while (sorted > -1 && *arr[sorted] == *arr[sorted + 1] && arr[sorted][1] > arr[sorted + 1][1]) {
+            temp = arr[sorted];
+            arr[sorted] = arr[sorted + 1];
+            arr[sorted + 1] = temp;
+            sorted--;
         }
     }
 }
@@ -39,6 +43,7 @@ void deleteRepeats(int** arr, int& length) {
             }
         }
     }
+    for (int i = 0; i < length - 1; i++) if (*arr[i] == *arr[i + 1] && arr[i][1] == arr[i + 1][1]) deleteRepeats(arr, length);
 }
 
 /* void showArr2(int* arr, int length) {
@@ -75,17 +80,31 @@ bool arePointsLinear(int x1, int y1, int x2, int y2, int x3, int y3) {
 
 // Функция для вычисления всех возможных групп точек, лежащих на одной прямой
 void findLinearPoints(int** arr, int length) {
+    /* int** harr = new int*[length];
+    int pos = 0;
+    for (int i = 0; i < length; i++) harr[i] = new int[2]; */
     for (int i = 0; i < length - 2; i++) {
         for (int j = i + 1; j < length - 1; j++) {
             for (int k = j + 1; k < length; k++) {
-                if (arePointsLinear(*arr[i], arr[i][1], *arr[j], arr[j][1], *arr[k], arr[k][1])) 
-                    cout << '(' << *arr[i] << ", " << arr[i][1] << ") (" << *arr[j] << ", " << arr[j][1] << ") (" << *arr[k] << ", " << arr[k][1] << ')' << endl;
+                if (arePointsLinear(*arr[i], arr[i][1], *arr[j], arr[j][1], *arr[k], arr[k][1])) {
+                    cout << '(' << *arr[i] << ", " << arr[i][1] << ") (" << *arr[j] << ", " << arr[j][1] << ") (" << *arr[k] << ", " << arr[k][1] << ')';
+                    /* for (int h = k + 1; h < length; h++) {
+                        if (arePointsLinear(*arr[i], arr[i][1], *arr[j], arr[j][1], *arr[h], arr[h][1])) {
+                            // *harr[pos++] = *arr[h];
+                            // harr[pos++][1] = arr[h][1];
+                            cout << " (" << *arr[h] << ", " << arr[h][1] << ')';
+                        }
+                    } */
+                    cout << endl;
+                }
             }
         }
     }
+    // delete [] harr;
 }
 
-int main() {
+int main()
+{
     int length;
     cout << "Введите количество точек: ";
     cin >> length;
@@ -97,7 +116,7 @@ int main() {
     for (int i = 0; i < length; i++) {
         cout << "Точка " << i + 1 << ": x = ";
         cin >> points[i][0];
-        cout << "\t y = ";
+        cout << "\t      y = ";
         cin >> points[i][1];
         cout << endl;
     }
@@ -110,7 +129,7 @@ int main() {
 
     // showArr(points, length);
 
-    findLinearPoints(points, length); // вызываем функцию
+    findLinearPoints(points, length);
 
     delete [] points;
 
