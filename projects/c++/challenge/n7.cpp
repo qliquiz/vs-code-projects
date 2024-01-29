@@ -65,17 +65,6 @@ int main() {
     // Удаление повторов
     for (int i = 0; i < length - 1; i++) {
         if (*points[i] == *points[i + 1] && points[i][1] == points[i + 1][1]) {
-            /* int** newPoints = new int*[--length];
-            for (int i = 0; i < length; i++) newPoints[i] = new int[2];
-            for (int j = 0; j < length; j++) {
-                if (j == i) {
-                    *newPoints[j] = *points[j + 1];
-                    newPoints[j][1] = points[j + 1][1];
-                } else {
-                    *newPoints[j] = *points[j];
-                    newPoints[j][1] = points[j][1];
-                }
-            } */
             length--;
             for (int j = i; j < length; j++) {
                 *points[j] = *points[j + 1];
@@ -83,13 +72,12 @@ int main() {
             }
         }
     }
-    // delete [] points;
 
     showArr(points, length);
 
     // find2linearPoints(points, n); // вызываем функцию
 
-    // delete [] newPoints;
+    delete [] points;
 
     return 0;
 }
