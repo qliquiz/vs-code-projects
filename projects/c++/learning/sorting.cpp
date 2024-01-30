@@ -2,8 +2,8 @@
 
 using namespace std;
 
-void InsertSort(int *arr) {
-    int buf, i, j, size = sizeof(arr)/sizeof(arr[0]);
+void insertSort(int *arr, int size) {
+    int buf, i, j;
     for (i = 1; i < size; i++) {
         buf = arr[i];
         for (j = i - 1; j >= 0 && buf < arr[j]; j--) arr[j + 1] = arr[j];
@@ -83,16 +83,15 @@ void BucketSort(int *arr, int n) {
         b[x][k[x]++] = arr[i];
     }
     for (int i = 0; i < n; i++)
-        InsertSort(arr);
         // QuickSort(b[i], 0, k[i] - 1);
     int index = 0;
     for (int i = 0; i < n; i++)
         for (int j = 0; j < k[i]; j++)
-            arr[index++] = b[i][j];
+            // arr[index++] = b[i][j];
+            break;
 }
 
-void MergeSort(int *arr) {
-    int size = sizeof(arr);
+void MergeSort(int *arr, int size) {
     int i; // BlockSizeIterator
     int j; // BlockIterator
     int lbi; // LeftBlockIterator
@@ -131,7 +130,7 @@ void MergeSort(int *arr) {
                 rbi++;
             }
             for (mi = 0; mi < lbi + rbi; mi++) arr[lb + mi] = SortedBlock[mi];
-            delete SortedBlock;
+            delete [] SortedBlock;
         }
     }
 }
@@ -196,7 +195,7 @@ int main()
         Объединить sub1 и sub2 в новый массив В
         return В
     end */
-    // MergeSort(arr);
+    MergeSort(arr, 8);
 
     for (int i = 0; i < 8; i++) cout << arr[i];
 

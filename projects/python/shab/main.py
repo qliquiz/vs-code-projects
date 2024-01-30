@@ -42,8 +42,8 @@ class MonthlyCalendar:
 
         self.weekdays = ('Сб', 'Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт')
 
-        self.months = ('Styczen', 'Luty', 'Marzec', 'Kwiecien', 'Maj', 'Czerwiec',
-                        'Lipiec', 'Sierpien', 'Wrzesien', 'Pazdziernik', 'Listopad', 'Grudzien')
+        self.months = ('Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+                        'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь')
 
         self.error = ('Year must be 1 - 3999!', 'Month must be 1 - 12!')
 
