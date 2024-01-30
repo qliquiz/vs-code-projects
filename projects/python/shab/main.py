@@ -31,14 +31,14 @@ class MonthlyCalendar:
         self.suFontColor = '#D00000'        
         self.suBGColor = '#FFF0F0'          
 
-        self.tdBorderColor = 'red'      
+        self.tdBorderColor = 'red'
 
-        self.borderColor = '#304B90'        
-        self.hilightColor = '#FFFF00'       
+        self.borderColor = '#304B90'
+        self.hilightColor = '#FFFF00'
 
-        self.link = ''                      
-        self.offset = 1                    
-        self.weekNumbers = 0                
+        self.link = ''
+        self.offset = 2
+        self.weekNumbers = 0
 
         self.weekdays = ('Сб', 'Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт')
 
