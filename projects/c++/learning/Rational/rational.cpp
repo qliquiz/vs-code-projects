@@ -7,14 +7,14 @@ using namespace std;
 int main()
 {
     // Тестируем конструктор, +, -, *=, /, <<
-    /* Rational a(1, 2), b(-1, 6);
+    Rational a(1, 2), b(-1, 6);
     cout << "a = " << a << " b = " << b << " a + b = " << a + b << '\n';
-    cout << "a(" << a << ") *= b(" << b << ")" << '\n'; */
+    cout << "a(" << a << ") *= b(" << b << ")" << '\n';
     
-    /* a *= b;
+    a *= b;
     cout << "a = " << a <<" b = " << b << " a - b = " << a - b << '\n';
     Rational c = 3;
-    cout << "b = " << b << " c = " << c << " b / c = " << b / c << '\n'; */
+    cout << "b = " << b << " c = " << c << " b / c = " << b / c << "\n\n";
 
     // Тестируем >>, !=
     Rational e(1, 3), f(2, 5);
@@ -34,14 +34,14 @@ Rational::Rational() {
     denom = 1;
 }
 
-Rational::Rational(int number) {
-    number = number;
+Rational::Rational(int n) {
+    number = n;
     denom = 1;
 }
 
-Rational::Rational(int number, int denom) {
-    number = number;
-    denom = denom;
+Rational::Rational(int n, int d) {
+    number = n;
+    denom = d;
 }
 
 void Rational::simplify() {
@@ -65,9 +65,34 @@ Rational& Rational::operator +=(const Rational& r) {
     return *this;
 }
 
+Rational& Rational::operator -=(const Rational& r) {
+    return *this += -r;
+}
+
+Rational& Rational::operator *=(const Rational& r) {
+    number *= r.number;
+    denom *= r.denom;
+    simplify();
+    return *this;
+}
+
+Rational& Rational::operator /=(const Rational& r) {
+    number *= r.denom;
+    denom *= r.number;
+    simplify();
+    return *this;
+}
+
 Rational Rational::operator +(const Rational& r) const {
     Rational res(*this);
     return res += r;
+}
+
+Rational& Rational::operator -(const Rational& r) {
+    number = (number * r.denom - denom * r.number);
+    denom *= r.denom;
+    simplify();
+    return *this;
 }
 
 Rational Rational::operator -() const {
@@ -75,8 +100,16 @@ Rational Rational::operator -() const {
     return r;
 }
 
-Rational& Rational::operator -=(const Rational& r) {
-    return *this += -r;
+Rational Rational::operator *(const Rational& r) const {
+    Rational res(*this);
+    return res *= r;
+}
+
+Rational& Rational::operator /(const Rational& r) {
+    number *= r.denom;
+    denom *= r.number;
+    simplify();
+    return *this;
 }
 
 Rational& Rational::operator ++() {
@@ -87,6 +120,17 @@ Rational& Rational::operator ++() {
 Rational Rational::operator ++(int) {
     Rational r(*this);
     number += denom;
+    return r;
+}
+
+Rational& Rational::operator --() {
+    number -= denom;
+    return *this;
+}
+
+Rational Rational::operator --(int) {
+    Rational r(*this);
+    number -= denom;
     return r;
 }
 

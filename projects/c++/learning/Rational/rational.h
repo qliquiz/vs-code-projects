@@ -8,17 +8,24 @@ public:
     int denom; // знаменатель
 
     Rational();
-    Rational(int number);
-    Rational(int number, int denom);
+    Rational(int n);
+    Rational(int n, int d);
 
     void simplify();
 
-    Rational& operator +=(const Rational& r);
     Rational operator +(const Rational& r) const;
+    Rational& operator -(const Rational& r);
     Rational operator -() const;
+    Rational operator *(const Rational& r) const;
+    Rational& operator /(const Rational& r);
+    Rational& operator +=(const Rational& r);
     Rational& operator -=(const Rational& r);
+    Rational& operator *=(const Rational& r);
+    Rational& operator /=(const Rational& r);
     Rational& operator ++(); // префикс
     Rational operator ++(int); // постфикс
+    Rational& operator --();
+    Rational operator --(int);
 
     bool operator ==(const Rational& r) const;
     bool operator !=(const Rational& r) const;
