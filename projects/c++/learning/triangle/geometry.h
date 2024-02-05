@@ -1,33 +1,28 @@
 #include <math.h>
+#include "point.h"
+#include "triangle.h"
 
 #ifndef _GEOMETRY_H
 #define _GEOMETRY_H
 double calcDistance(const Point& p1, const Point& p2);
 double calcAreaBySides(double a, double b, double c);
+double calcTriangleArea(Triangle& tr);
 #endif 
 
-struct Point {
-    double x, y;
-};
+Point::Point() {
+    x = y = 0.0;
+}
 
-struct Triangle {
-    Point vertexes[3];
-    double area;
-
-    bool operator <=(const Triangle& triangle) const;
-};
-
-double calcArea(const Point& p1, const Point& p2, const Point& p3);
+Triangle::Triangle() {
+    // конструктор вершин-точек вызовется автоматически
+    area = 0.0;
+}
 
 double calcDistance(const Point& p1, const Point& p2);
 
 double calcAreaBySides(double a, double b, double c);
 
 double calcTriangleArea(Triangle& tr);
-
-double calcArea(const Point& p1, const Point& p2, const Point& p3) {
-    return fabs((p2.x - p1.x) * (p3.y - p1.y) - (p3.x - p1.x) * (p2.y - p1.y));
-}
 
 double calcDistance(const Point& p1, const Point& p2) {
     return sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
@@ -47,6 +42,30 @@ double calcTriangleArea(Triangle& tr) {
     return tr.area = calcAreaBySides(a, b, c);
 }
 
-bool Triangle::operator <=(const Triangle& triangle) const {
-    return area <= triangle.area;
+void Point::clear() {
+    x = y = 0.0;
 }
+
+double Point::calcDistance(const Point& p) const {
+    return sqrt((x - p.x) * (x - p.x) + (y - p.y) * (y - p.y));
+}
+
+void Triangle::clear() {
+    for (int i = 0; i < 3; i++) vertexes[i].clear();
+    area = 0.0;
+}
+
+double Triangle::calcArea() {
+    double a = vertexes[0].calcDistance(vertexes[1]);
+    double b = vertexes[1].calcDistance(vertexes[2]);
+    double c = vertexes[2].calcDistance(vertexes[0]);
+    return area = calcAreaBySides(a, b, c);
+}
+
+bool Triangle::operator <=(const Triangle& tr) const {
+    return area <= tr.area;
+}
+
+/* bool operator <=(const Triangle& tr1, const Triangle& tr2) {
+    return tr1.area <= tr2.area;
+} */
