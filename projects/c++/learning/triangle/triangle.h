@@ -2,7 +2,8 @@
 
 using namespace std;
 
-struct Triangle {    
+class Triangle {
+public:    
     Point vertexes[3];
     double area;
 

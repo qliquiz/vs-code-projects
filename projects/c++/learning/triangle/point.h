@@ -2,7 +2,8 @@
 
 using namespace std;
 
-struct Point {
+class Point {
+public:
 // private:
     double x, y;
 // public:
