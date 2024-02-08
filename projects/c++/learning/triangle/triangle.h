@@ -3,10 +3,10 @@
 using namespace std;
 
 struct Triangle {    
-    Triangle();
-
     Point vertexes[3];
     double area;
+
+    Triangle();
 
     void clear();
     double calcArea();

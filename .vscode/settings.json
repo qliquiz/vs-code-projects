@@ -127,7 +127,8 @@
     "locale": "cpp",
     "mutex": "cpp",
     "ratio": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "fstream": "cpp"
   },
   "editor.fontSize": 13
 }
