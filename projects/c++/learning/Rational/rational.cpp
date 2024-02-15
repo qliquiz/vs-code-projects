@@ -44,7 +44,19 @@ Rational::Rational(int n, int d) {
     denom = d;
 }
 
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
 void Rational::simplify() {
+    int commonDivisor = gcd(number, denom);
+    number /= commonDivisor;
+    denom /= commonDivisor;
+}
+
+/* void Rational::simplify() {
     if (denom < 0) {
         number = -number;
         denom = -denom;
@@ -56,7 +68,7 @@ void Rational::simplify() {
             i--;
         }
     }
-}
+} */
 
 Rational& Rational::operator +=(const Rational& r) {
     number = (number * r.denom + denom * r.number);
