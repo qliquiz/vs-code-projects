@@ -128,7 +128,13 @@
     "mutex": "cpp",
     "ratio": "cpp",
     "variant": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "format": "cpp",
+    "list": "cpp",
+    "xhash": "cpp",
+    "xstring": "cpp",
+    "xtree": "cpp",
+    "xutility": "cpp"
   },
   "editor.fontSize": 12
 }
