@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <time.h>
 
 using namespace std;
 
@@ -20,11 +21,17 @@ int joseph(int n, int k) {
 }
 
 int main() {
-    int n = 13; // Количество участников
-    int k = 3; // Шаг для убийства
+    int n = 1000 ; // Количество участников
+    int k = 2; // Шаг для убийства
 
+    clock_t start = clock();
     int survivor = joseph(n, k);
-    cout << "Survivor number: " << survivor;
+    clock_t end = clock();
+
+    double time = (end - start);
+
+    cout << "Survivor number: " << survivor << endl;
+    cout << "The time: " << time << endl;
 
     return 0;
 }
