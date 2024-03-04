@@ -1,4 +1,4 @@
-const Logger = require('./log');
+const Logger = require('./5_log');
 
 const logger = new Logger();
 
