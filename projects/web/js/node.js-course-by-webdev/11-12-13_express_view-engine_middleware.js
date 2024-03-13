@@ -11,6 +11,14 @@ server.listen(PORT, (error) => {
     error ? console.log('Error') : console.log(`Listening port ${PORT}...`);;
 });
 
+server.use((req, res, next) => { // middleware
+    console.log(`path: ${req.path}`);
+    console.log(`method: ${req.method}`);
+    next();
+})
+
+// app.use(express.static('styles'));
+
 server.get('/', (req, res) => {
     const title = 'Home';
     res.render(createPath('index'), {title});

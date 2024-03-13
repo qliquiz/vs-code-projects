@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon 12_view-engine.js",
+    "dev": "nodemon 11-12-13_express_view-engine_middleware.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
