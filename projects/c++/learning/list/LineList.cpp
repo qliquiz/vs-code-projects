@@ -20,7 +20,7 @@ public:
 template <class T> class LineList {
     LineList(const LineList& list);
     LineListElem<T>* start;
-    LineList& operator =(const LineList& list);
+    // LineList& operator =(const LineList& list);
 public:
     LineList();
     ~LineList();
@@ -38,7 +38,7 @@ public:
 class LineListException {};
 
 
-template <class T> LineListElem<T>::LineListElem(const T& adata, LineListElem<T>* anext) {
+template <class t> LineListElem<t>::LineListElem(const t& adata, LineListElem<t>* anext) {
     data = adata;
     next = anext;
 }
@@ -101,6 +101,8 @@ int main(void)
     list.insertAfter(ptr -> getNext(), 12);
     list.insertFirst(7);
     cout << "Шаг 1: " << list << endl;
-    // …
+    // list.deleteAfter();
+    list.deleteFirst();
+    cout << "Шаг 2: " << list << endl;
     return 0;
 }
