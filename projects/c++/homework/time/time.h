@@ -8,14 +8,14 @@ private:
     double fractionalDay;
 public:
     // Конструктор
-    Datetime(int y = 2000, int m = 1, int d = 1, double fd = 0.0);
+    Datetime(int y = 2000, int m = 1, int d = 1, double fd = 0.0) : year(y), month(m), day(d), fractionalDay(fd) {}
     // Деструктор
-    ~Datetime();
+    // ~Datetime();
     // Методы для работы с датой и временем
     void setDate(std::string date);
     void printDate(int format);
     void calculateDifference(Datetime date2);
-    std::string getDayOfWeek();
+    void printWeekDay();
     bool isValidate();
     // Метод определения даты Пасхи
     Datetime calculateEasterDate();

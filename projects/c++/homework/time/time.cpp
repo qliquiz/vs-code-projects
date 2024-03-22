@@ -15,15 +15,13 @@ int main() {
     date1.printDate(2); // Вывод формата "1/01/2001"
     date1.printDate(3); // Вывод формата "1 января 2001"
 
-    date1.getDayOfWeek();
+    date1.printWeekDay();
 
     if (date1.isValidate()) std::cout << "Дата корректна!" << std::endl;
     else throw DatetimeException();
 
     return 0;
 }
-
-Datetime::Datetime(int y = 2000, int m = 1, int d = 1, double fd = 0.0) : year(y), month(m), day(d), fractionalDay(fd) {}
 
 void Datetime::setDate(std::string date) {
     std::string strYear = "", strMonth = "", strDay = "", strHour = "", strMin = "", strSec = "";
@@ -110,46 +108,46 @@ void Datetime::calculateDifference(Datetime date2) {
     //
 }
 
-std::string Datetime::getDayOfWeek() {
+void Datetime::printWeekDay() {
     int result = (6 + year % 100 + (year % 100 / 4)) % 7 + day;
     if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) 
         switch (month)
         {
         case 1:
-            result += static_cast<int>(LeapMonths::January);
+            result += 0;
             break;
         case 2:
-            result += static_cast<int>(LeapMonths::February);
+            result += 3;
             break;
         case 3:
-            result += static_cast<int>(LeapMonths::March);
+            result += 4;
             break;
         case 4:
-            result += static_cast<int>(LeapMonths::April);
+            result += 0;
             break;
         case 5:
-            result += static_cast<int>(LeapMonths::May);
+            result += 2;
             break;
         case 6:
-            result += static_cast<int>(LeapMonths::June);
+            result += 5;
             break;
         case 7:
-            result += static_cast<int>(LeapMonths::July);
+            result += 0;
             break;
         case 8:
-            result += static_cast<int>(LeapMonths::August);
+            result += 3;
             break;
         case 9:
-            result += static_cast<int>(LeapMonths::September);
+            result += 6;
             break;
         case 10:
-            result += static_cast<int>(LeapMonths::October);
+            result += 1;
             break;
         case 11:
-            result += static_cast<int>(LeapMonths::November);
+            result += 4;
             break;
         case 12:
-            result += static_cast<int>(LeapMonths::December);
+            result += 6;
             break;
         default:
             throw DatetimeException();
@@ -159,40 +157,40 @@ std::string Datetime::getDayOfWeek() {
         switch (month)
         {
         case 1:
-            result += static_cast<int>(Months::January);
+            result += 1;
             break;
         case 2:
-            result += static_cast<int>(Months::February);
+            result += 4;
             break;
         case 3:
-            result += static_cast<int>(Months::March);
+            result += 4;
             break;
         case 4:
-            result += static_cast<int>(Months::April);
+            result += 0;
             break;
         case 5:
-            result += static_cast<int>(Months::May);
+            result += 2;
             break;
         case 6:
-            result += static_cast<int>(Months::June);
+            result += 5;
             break;
         case 7:
-            result += static_cast<int>(Months::July);
+            result += 0;
             break;
         case 8:
-            result += static_cast<int>(Months::August);
+            result += 3;
             break;
         case 9:
-            result += static_cast<int>(Months::September);
+            result += 6;
             break;
         case 10:
-            result += static_cast<int>(Months::October);
+            result += 1;
             break;
         case 11:
-            result += static_cast<int>(Months::November);
+            result += 4;
             break;
         case 12:
-            result += static_cast<int>(Months::December);
+            result += 6;
             break;
         default:
             throw DatetimeException();
