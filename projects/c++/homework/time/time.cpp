@@ -15,6 +15,8 @@ int main() {
     date1.printDate(2); // Вывод формата "1/01/2001"
     date1.printDate(3); // Вывод формата "1 января 2001"
 
+    date1.getDayOfWeek();
+
     if (date1.isValidate()) std::cout << "Дата корректна!" << std::endl;
     else throw DatetimeException();
 
@@ -22,8 +24,6 @@ int main() {
 }
 
 Datetime::Datetime(int y = 2000, int m = 1, int d = 1, double fd = 0.0) : year(y), month(m), day(d), fractionalDay(fd) {}
-
-Datetime::~Datetime() { delete this; }
 
 void Datetime::setDate(std::string date) {
     std::string strYear = "", strMonth = "", strDay = "", strHour = "", strMin = "", strSec = "";
@@ -101,7 +101,7 @@ void Datetime::printDate(int format) {
         std::cout << day << " Декабря " << year << std::endl;
         break;
     default:
-        std::cout << "Ошибка!" << std::endl;
+        throw DatetimeException();
         break;
     }
 }
@@ -111,7 +111,121 @@ void Datetime::calculateDifference(Datetime date2) {
 }
 
 std::string Datetime::getDayOfWeek() {
-    return "Пятница";
+    int result = (6 + year % 100 + (year % 100 / 4)) % 7 + day;
+    if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) 
+        switch (month)
+        {
+        case 1:
+            result += static_cast<int>(LeapMonths::January);
+            break;
+        case 2:
+            result += static_cast<int>(LeapMonths::February);
+            break;
+        case 3:
+            result += static_cast<int>(LeapMonths::March);
+            break;
+        case 4:
+            result += static_cast<int>(LeapMonths::April);
+            break;
+        case 5:
+            result += static_cast<int>(LeapMonths::May);
+            break;
+        case 6:
+            result += static_cast<int>(LeapMonths::June);
+            break;
+        case 7:
+            result += static_cast<int>(LeapMonths::July);
+            break;
+        case 8:
+            result += static_cast<int>(LeapMonths::August);
+            break;
+        case 9:
+            result += static_cast<int>(LeapMonths::September);
+            break;
+        case 10:
+            result += static_cast<int>(LeapMonths::October);
+            break;
+        case 11:
+            result += static_cast<int>(LeapMonths::November);
+            break;
+        case 12:
+            result += static_cast<int>(LeapMonths::December);
+            break;
+        default:
+            throw DatetimeException();
+            break;
+        }
+    else
+        switch (month)
+        {
+        case 1:
+            result += static_cast<int>(Months::January);
+            break;
+        case 2:
+            result += static_cast<int>(Months::February);
+            break;
+        case 3:
+            result += static_cast<int>(Months::March);
+            break;
+        case 4:
+            result += static_cast<int>(Months::April);
+            break;
+        case 5:
+            result += static_cast<int>(Months::May);
+            break;
+        case 6:
+            result += static_cast<int>(Months::June);
+            break;
+        case 7:
+            result += static_cast<int>(Months::July);
+            break;
+        case 8:
+            result += static_cast<int>(Months::August);
+            break;
+        case 9:
+            result += static_cast<int>(Months::September);
+            break;
+        case 10:
+            result += static_cast<int>(Months::October);
+            break;
+        case 11:
+            result += static_cast<int>(Months::November);
+            break;
+        case 12:
+            result += static_cast<int>(Months::December);
+            break;
+        default:
+            throw DatetimeException();
+            break;
+        }
+    result %= 7;
+    switch (result)
+    {
+    case 1:
+        std::cout << "Понедельник" << std::endl;
+        break;
+    case 2:
+        std::cout << "Вторник" << std::endl;
+        break;
+    case 3:
+        std::cout << "Среда" << std::endl;
+        break;
+    case 4:
+        std::cout << "Четверг" << std::endl;
+        break;
+    case 5:
+        std::cout << "Пятница" << std::endl;
+        break;
+    case 6:
+        std::cout << "Суббота" << std::endl;
+        break;
+    case 7:
+        std::cout << "Воскресенье" << std::endl;
+        break;
+    default:
+        throw DatetimeException();
+        break;
+    }
 }
 
 bool Datetime::isValidate() {
