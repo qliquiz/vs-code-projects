@@ -199,25 +199,25 @@ void Datetime::printWeekDay() {
     result %= 7;
     switch (result)
     {
-    case 1:
+    case 2:
         std::cout << "Понедельник" << std::endl;
         break;
-    case 2:
+    case 3:
         std::cout << "Вторник" << std::endl;
         break;
-    case 3:
+    case 4:
         std::cout << "Среда" << std::endl;
         break;
-    case 4:
+    case 5:
         std::cout << "Четверг" << std::endl;
         break;
-    case 5:
+    case 6:
         std::cout << "Пятница" << std::endl;
         break;
-    case 6:
+    case 7:
         std::cout << "Суббота" << std::endl;
         break;
-    case 7:
+    case 1:
         std::cout << "Воскресенье" << std::endl;
         break;
     default:

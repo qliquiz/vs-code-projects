@@ -26,6 +26,6 @@ public:
 
 class DatetimeException {};
 
-enum class Months {January = 1, February = 4, March = 4, April = 0, May = 2, June = 5, July = 0, August = 3, September = 6, October = 1, November = 4, December = 6};
+/* enum class Months {January = 1, February = 4, March = 4, April = 0, May = 2, June = 5, July = 0, August = 3, September = 6, October = 1, November = 4, December = 6};
 
-enum class LeapMonths {January = 0, February = 3, March = 4, April = 0, May = 2, June = 5, July = 0, August = 3, September = 6, October = 1, November = 4, December = 6};
+enum class LeapMonths {January = 0, February = 3, March = 4, April = 0, May = 2, June = 5, July = 0, August = 3, September = 6, October = 1, November = 4, December = 6}; */
