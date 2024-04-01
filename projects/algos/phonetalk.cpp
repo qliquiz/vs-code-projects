@@ -11,14 +11,14 @@ int main()
     int n;
     cin >> n;
 
-    vector<vector<int>> vec(n);
+    vector< vector<int> > vec(n);
 
     for (int i = 0; i < n; i++) {
         vec[i].reserve(2);
         for (int j = 0; j < 2; j++) cin >> vec[i][j];
     }
 
-    sort(begin(vec), end(vec), compare);
+    stable_sort(begin(vec), end(vec), compare);
 
     for (int i = 0; i < n; i++) {
         cout << vec[i][0] << ' ' << vec[i][1];

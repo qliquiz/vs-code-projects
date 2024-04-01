@@ -134,7 +134,8 @@
     "xhash": "cpp",
     "xstring": "cpp",
     "xtree": "cpp",
-    "xutility": "cpp"
+    "xutility": "cpp",
+    "stack": "cpp"
   },
   "editor.fontSize": 12
 }
