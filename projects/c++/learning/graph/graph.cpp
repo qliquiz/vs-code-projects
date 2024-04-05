@@ -4,11 +4,21 @@
 
 int main()
 {
-    
+    Graph graph;
 
     return 0;
 }
 
+
+typedef std::set<Node*>::const_iterator node_iterator;
+
+void Graph::addNode(Node* node)
+{
+    nodes.insert(node);
+    // Add also to all neighbours list
+    for (std::set<Node*>::iterator it = nodes.begin(); it != nodes.end(); it++)
+        (*it)->addNeighbour(node);
+}
 
 void Graph::removeNode(Node* node)
 {
@@ -27,6 +37,31 @@ void Graph::addEdge(Node* begin, Node* end)
 
     begin->addNeighbour(end);
     end->addNeighbour(begin);
+}
+
+void Graph::removeEdge(Node *begin, Node *end)
+{
+    if (nodes.find(begin) == nodes.end())
+        return;
+    if (nodes.find(end) == nodes.end())
+        return;
+
+    begin->removeNeighbour(end);
+    end->removeNeighbour(begin);
+}
+
+void Node::addNeighbour(Node *neighbour)
+{
+    neighbours.insert(neighbour);
+    for (std::set<Node*>::iterator it = neighbours.begin(); it != neighbours.end(); it++)
+        neighbour->neighbours.insert(*it);
+}
+
+void Node::removeNeighbour(Node *neighbour)
+{
+    neighbours.erase(neighbour);
+    for (std::set<Node*>::iterator it = neighbours.begin(); it != neighbours.end(); it++)
+        neighbour->neighbours.erase(*it);
 }
 
 bool BFS::connected(Node* begin, Node* end)
@@ -128,7 +163,8 @@ static Way unroll(std::map<Node*, MarkedNode> visited, Node* begin, Node* curr)
     Way way;
     way.length = visited[curr].mark;
     
-    while (curr != begin) {
+    while (curr != begin)
+    {
         way.nodes.push_back(curr);
         curr = visited[curr].prev;
     }
