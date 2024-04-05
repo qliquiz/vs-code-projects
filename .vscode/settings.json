@@ -135,7 +135,9 @@
     "xstring": "cpp",
     "xtree": "cpp",
     "xutility": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "set": "cpp",
+    "queue": "cpp"
   },
   "editor.fontSize": 12
 }
