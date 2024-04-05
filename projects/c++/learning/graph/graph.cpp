@@ -5,6 +5,35 @@
 int main()
 {
     Graph graph;
+    BFS bfs(graph);
+    DFS dfs(graph);
+
+    Node node1("node1"), node2("node2"), node3("node3"), node4("node4"), node5("node5"), node6("node6"), node7("node7"), node8("node8");
+
+    graph.addNode(&node1);
+    graph.addNode(&node2);
+    graph.addNode(&node3);
+    graph.addNode(&node4);
+    graph.addNode(&node5);
+    graph.addNode(&node6);
+    graph.addNode(&node7);
+    
+    graph.addEdge(&node1, &node2);
+    graph.addEdge(&node1, &node3);
+    graph.addEdge(&node1, &node4);
+    graph.addEdge(&node2, &node5);
+    graph.addEdge(&node2, &node6);
+    graph.addEdge(&node3, &node7);
+
+    std::cout << bfs.connected(&node1, &node2) << std::endl;
+    std::cout << bfs.connected(&node1, &node6) << std::endl;
+    std::cout << bfs.connected(&node2, &node7) << std::endl;
+    std::cout << bfs.connected(&node1, &node8) << std::endl;
+
+    std::cout << dfs.connected(&node1, &node2) << std::endl;
+    std::cout << dfs.connected(&node1, &node6) << std::endl;
+    std::cout << dfs.connected(&node2, &node7) << std::endl;
+    std::cout << dfs.connected(&node1, &node8) << std::endl;
 
     return 0;
 }
@@ -132,6 +161,22 @@ void PriorityQueue::push(Node* node, int mark, Node* prev)
     else nodes.insert(it, mn);
 }
 
+static Way unroll(std::map<Node*, MarkedNode> visited, Node* begin, Node* curr)
+{
+    Way way;
+    way.length = visited[curr].mark;
+    
+    while (curr != begin)
+    {
+        way.nodes.push_back(curr);
+        curr = visited[curr].prev;
+    }
+    
+    way.nodes.push_back(begin);
+
+    return way;
+}
+
 Way Dijkstra::shortestWay(Node* begin, Node* end)
 {
     std::map<Node*, MarkedNode> visited;
@@ -156,20 +201,4 @@ Way Dijkstra::shortestWay(Node* begin, Node* end)
     }
     
     return Way();
-}
-
-static Way unroll(std::map<Node*, MarkedNode> visited, Node* begin, Node* curr)
-{
-    Way way;
-    way.length = visited[curr].mark;
-    
-    while (curr != begin)
-    {
-        way.nodes.push_back(curr);
-        curr = visited[curr].prev;
-    }
-    
-    way.nodes.push_back(begin);
-
-    return way;
 }

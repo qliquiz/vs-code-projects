@@ -4,22 +4,6 @@
 #include <map>
 
 
-class Graph
-{
-    typedef std::set<Node*>::const_iterator node_iterator;
-    std::set<Node*> nodes;
-public:
-    // virtual ~Graph();
-
-    void addNode(Node* node);
-    void removeNode(Node* node);
-    void addEdge(Node* begin, Node* end);
-    void removeEdge(Node* begin, Node* end);
-    node_iterator begin() const { return nodes.begin(); }
-    node_iterator end() const { return nodes.end(); }
-};
-
-
 class Node {
     typedef std::set<Node*>::const_iterator node_iterator;
     std::string name;
@@ -36,6 +20,22 @@ public:
     node_iterator nb_begin() const { return neighbours.begin(); }
     node_iterator nb_end() const { return neighbours.end(); }
     friend class Graph;
+};
+
+
+class Graph
+{
+    typedef std::set<Node*>::const_iterator node_iterator;
+    std::set<Node*> nodes;
+public:
+    // virtual ~Graph();
+
+    void addNode(Node* node);
+    void removeNode(Node* node);
+    void addEdge(Node* begin, Node* end);
+    void removeEdge(Node* begin, Node* end);
+    node_iterator begin() const { return nodes.begin(); }
+    node_iterator end() const { return nodes.end(); }
 };
 
 
