@@ -1,17 +1,20 @@
 #include <iostream>
-#include <random>
+#include <string>
 
 using namespace std;
 
-string guess(int n = 500000, int low = 1, int up = 1000000) {
-    cout << n;
-    string res = "";
-    while (low + 1 < up) {
-        cin >> res;
-        if (res == ">=") guess(n, n, up);
-        if (res == "<=") guess(n, low, n);
-        if (res == ">") guess(n * 1.5, n, up);
-        if (res == "<") guess(n / 2, low, n);
+string guess(int low = 1, int up = 1000000) {
+    if (low + 1 >= up) cout << "! " << to_string(low) << endl;
+    else
+    {
+        cout << (low + up) / 2 << endl;
+        fflush(stdout);
+        string res = "";
+        while (low + 1 < up) {
+            cin >> res;
+            if (res[0] == '>') guess((low + up) / 2, up);
+            if (res[0] == '<') guess(low, (low + up) / 2);
+        }
     }
 }
 
