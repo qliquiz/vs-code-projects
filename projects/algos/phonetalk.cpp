@@ -1,29 +1,39 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
-using namespace std;
 
-bool compare(const vector<int>& left, const vector<int>& right) { return left[1] > right[1]; }
+void insertSort(std::vector< std::vector<int> > &arr, int size) {
+    std::vector<int> buf;
+    buf.reserve(2);
+    int i, j;
+    for (i = 1; i < size; i++) {
+        buf[0] = arr[i][0];
+        buf[1] = arr[i][1];
+        for (j = i - 1; j >= 0 && buf[1] > arr[j][1]; j--) {
+            arr[j + 1][0] = arr[j][0];
+            arr[j + 1][1] = arr[j][1];
+        }
+        arr[j + 1][0] = buf[0];
+        arr[j + 1][1] = buf[1];
+    }
+}
+
 
 int main()
 {
     int n;
-    cin >> n;
+    std::cin >> n;
 
-    vector< vector<int> > vec(n);
+    std::vector< std::vector<int> > vec(n);
 
     for (int i = 0; i < n; i++) {
         vec[i].reserve(2);
-        for (int j = 0; j < 2; j++) cin >> vec[i][j];
+        for (int j = 0; j < 2; j++) std::cin >> vec[i][j];
     }
 
-    stable_sort(begin(vec), end(vec), compare);
+    insertSort(vec, n);
 
-    for (int i = 0; i < n; i++) {
-        cout << vec[i][0] << ' ' << vec[i][1];
-        cout << endl;
-    }
+    for (int i = 0; i < n; i++) std::cout << vec[i][0] << ' ' << vec[i][1] << '\n';
 
     return 0;
 }
