@@ -13,6 +13,7 @@ class Node {
     void removeNeighbour(Node* neighbour);
 public:
     Node(const std::string& aname) : name(aname) {}
+    // Node(Node* node);
     // virtual ~Node();
     
     const int getWeight(Node* neighbour) const { return neighbour->neighbours.size(); }
@@ -28,6 +29,7 @@ class Graph
     typedef std::set<Node*>::const_iterator node_iterator;
     std::set<Node*> nodes;
 public:
+    // Graph(Graph* graph);
     // virtual ~Graph();
 
     void addNode(Node* node);

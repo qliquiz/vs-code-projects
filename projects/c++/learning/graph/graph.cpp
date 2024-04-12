@@ -4,12 +4,14 @@
 
 int main()
 {
-    Graph graph;
+    Graph graph; // Создаём граф
     BFS bfs(graph);
     DFS dfs(graph);
 
-    Node node1("node1"), node2("node2"), node3("node3"), node4("node4"), node5("node5"), node6("node6"), node7("node7"), node8("node8");
+    Node node1("node1"), node2("node2"), node3("node3"), node4("node4"), // создаём узлы
+    node5("node5"), node6("node6"), node7("node7"), node8("node8");
 
+    // Добавляем в граф узлы
     graph.addNode(&node1);
     graph.addNode(&node2);
     graph.addNode(&node3);
@@ -18,6 +20,7 @@ int main()
     graph.addNode(&node6);
     graph.addNode(&node7);
     
+    // Связываем узлы
     graph.addEdge(&node1, &node2);
     graph.addEdge(&node1, &node3);
     graph.addEdge(&node1, &node4);
@@ -25,15 +28,22 @@ int main()
     graph.addEdge(&node2, &node6);
     graph.addEdge(&node3, &node7);
 
-    std::cout << bfs.connected(&node1, &node2) << std::endl;
-    std::cout << bfs.connected(&node1, &node6) << std::endl;
-    std::cout << bfs.connected(&node2, &node7) << std::endl;
-    std::cout << bfs.connected(&node1, &node8) << std::endl;
+    std::cout << "Проверяем связанность после добавления:" << std::endl;
+    std::cout << "BFS: " << bfs.connected(&node1, &node2) << ", DFS: " << dfs.connected(&node1, &node2) << std::endl;
+    std::cout << "BFS: " << bfs.connected(&node1, &node6) << ", DFS: " << dfs.connected(&node1, &node6) << std::endl;
+    std::cout << "BFS: " << bfs.connected(&node2, &node7) << ", DFS: " << dfs.connected(&node2, &node7) << std::endl;
+    std::cout << "BFS: " << bfs.connected(&node1, &node8) << ", DFS: " << dfs.connected(&node1, &node8) << std::endl;
 
-    std::cout << dfs.connected(&node1, &node2) << std::endl;
-    std::cout << dfs.connected(&node1, &node6) << std::endl;
-    std::cout << dfs.connected(&node2, &node7) << std::endl;
-    std::cout << dfs.connected(&node1, &node8) << std::endl;
+    std::cout << std::endl;
+    
+    // Удаляем ребро
+    graph.removeEdge(&node2, &node6);
+
+    // Удаляем узел
+    graph.removeNode(&node6);
+
+    std::cout << "Проверяем связанность после удаления:" << std::endl;
+    std::cout << "BFS: " << bfs.connected(&node2, &node6) << ", DFS: " << dfs.connected(&node2, &node6) << std::endl;
 
     return 0;
 }
