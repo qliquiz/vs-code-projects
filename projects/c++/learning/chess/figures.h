@@ -50,7 +50,6 @@ public:
 };
 
 
-
 /*class Player {
 	Move* moveArray;
 public:
