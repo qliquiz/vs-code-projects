@@ -137,7 +137,20 @@
     "xutility": "cpp",
     "stack": "cpp",
     "set": "cpp",
-    "queue": "cpp"
+    "queue": "cpp",
+    "ranges": "cpp",
+    "span": "cpp",
+    "xfacet": "cpp",
+    "xiosbase": "cpp",
+    "xlocale": "cpp",
+    "xlocbuf": "cpp",
+    "xlocinfo": "cpp",
+    "xlocmes": "cpp",
+    "xlocmon": "cpp",
+    "xlocnum": "cpp",
+    "xloctime": "cpp",
+    "xmemory": "cpp",
+    "xtr1common": "cpp"
   },
   "editor.fontSize": 12
 }

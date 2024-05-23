@@ -3,7 +3,8 @@
         {
             "name": "windows-gcc-x64",
             "includePath": [
-                "/Users/artemgorev/Documents/vs-code-projects/**"
+                "/Users/artemgorev/Documents/vs-code-projects/**",
+                "${workspaceFolder}/projects/c++/learning/figures"
             ],
             "compilerPath": "/usr/bin/gcc",
             "compilerArgs": [
