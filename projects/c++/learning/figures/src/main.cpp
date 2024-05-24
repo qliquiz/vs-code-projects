@@ -7,8 +7,12 @@
 
 
 int main() {
-    std::ifstream file("../dat/in/input1.dat");
-    std::ifstream borders("../dat/in/granitsy-uchastka2.txt");
+    Point point1(0, 0), point2(4, 0), point3(4, 4), point4(0, 4);
+    std::vector<Point> vertices;
+    Rectangle rectangle(vertices);
+
+    rectangle.calc_perimetr();
+    rectangle.calc_area();
 
     return 0;
 }

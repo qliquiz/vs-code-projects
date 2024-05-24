@@ -9,6 +9,7 @@
 
 struct Point {
     double x, y;
+    Point(double xx, double yy) : x(xx), y(yy) {}
 };
 
 
